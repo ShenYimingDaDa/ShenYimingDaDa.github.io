@@ -1,207 +1,368 @@
-<!doctype html>
-<html lang="zh-CN">
-<head>
+<!DOCTYPE html>
+<html><head>
+<title>Tags</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta name="referrer" content="no-referrer-when-downgrade">
-    
 
-    <title>Tags | sym的博客</title>
-    <meta property="og:title" content="Tags - sym的博客">
-    <meta property="og:type" content="article">
-        
-        
-    <meta name="Keywords" content="golang,python,钓鱼,fabric">
-    <meta name="description" content="Tags">
-        
-    <meta name="author" content="sym">
-    <meta property="og:url" content="https://shenyimingdada.github.io/tags/">
-    <link rel="shortcut icon" href='/favicon.ico'  type="image/x-icon">
 
-    <link rel="stylesheet" href='/css/normalize.css'>
-    <link rel="stylesheet" href='/css/style.css'>
-    <link rel="alternate" type="application/rss+xml" href="https://shenyimingdada.github.io/tags/index.xml" title="sym的博客" />
-    <script type="text/javascript" src="//cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-    
-    
-    
-    
-    
-    
-        <link rel="stylesheet" href='/css/douban.css'>
-    
-        <link rel="stylesheet" href='/css/other.css'>
-    
+<meta charset="utf-8">
+<meta name="X-UA-Compatible" content="IE=edge">
+<meta name="google-site-verification" content="">
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+<meta content="telephone=no" name="format-detection">
+<meta name="description" content="">
+<meta name="renderer" content="webkit">
+<meta name="theme-color" content="#ffffff">
+
+
+
+<meta property="og:title" content="Tags" />
+<meta property="og:description" content="My HomePage Description" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://ShenYimingDaDa.github.io/tags/" /><meta property="og:site_name" content="My Blog" />
+
+
+
+
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Tags"/>
+<meta name="twitter:description" content="My HomePage Description"/>
+
+
+
+
+
+
+
+<link type="text/css" rel="stylesheet" href="/vendor/css/bootstrap.min.css">
+
+
+  
+
+
+
+
+<link rel="icon" href="https://ShenYimingDaDa.github.io/static/images/bird.jpg">
+
+
+
+<link rel="stylesheet" href="https://ShenYimingDaDa.github.io/scss/journal.min.4911cdba6f1b7c77b7747bb468ef07239bca7b881cf2045f88da04c5f72e36bf.css" integrity="sha256-SRHNum8bfHe3dHu0aO8HI5vKe4gc8gRfiNoExfcuNr8=" media="screen">
+
+
+
+<link rel="stylesheet" href="https://ShenYimingDaDa.github.io/scss/dark-mode.min.241cce2dfc0c6e4b9a64f3bb73e005e4a357d3313342d2805681faf6a78d679b.css" integrity="sha256-JBzOLfwMbkuaZPO7c&#43;AF5KNX0zEzQtKAVoH69qeNZ5s=" media="screen">
+
+
+<script src="/vendor/js/loadCSS.js"></script>
+<script>
+  loadCSS("https://fonts.googleapis.com/css?family=Fira+Mono|Material+Icons");
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </head>
-
-
 <body>
-    <header id="header" class="clearfix">
-    <div class="container">
-        <div class="col-group">
-            <div class="site-name ">
+    	<div id="app"><div id="sideContainer" class="side-container">
+    
+    <a class="a-block nav-head false" href="https://ShenYimingDaDa.github.io">
+    
+        <div class="nav-title">
+            摆人日寄
+        </div>
+        
+        <div class="nav-subtitle">
+            啊对对对。
+        </div>
+        
+    </a>
+
+    <div class="nav-link-list">
+        
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/posts">
+                归档
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/categories">
+                分类
+            </a>
+            
+        
+            
+            
+            
                 
-                    <a id="logo" href="https://shenyimingdada.github.io/">
-                        sym的博客
-                    </a>
+            
+            
+            
+            <a class="a-block nav-link-item active" href="/tags">
+                标签
+            </a>
+            
+        
+            
+            
+            
+            
+            
+            <a class="a-block nav-link-item false" href="/index.xml">
+                RSS
+            </a>
+            
+        
+    </div>
+
+    
+
+    <div class="nav-footer">
+        
+
+PowerBy <a href="https://gohugo.io/getting-started/">HUGO</a>
+<br>
+
+
+&copy;
+	
+	This is a customized copyright.
+	
+
+    </div>
+    
+</div><div id="extraContainer" class="extra-container">
+    
+    
+    <div class="pagination">
+        <a id="globalBackToTop" class="pagination-action animated-visibility" href="#top" :class="{ invisible: scrollY == 0 }">
+            <i class="material-icons pagination-action-icon">
+                keyboard_arrow_up
+            </i>
+        </a>
+        
+        <a type="button" class="pagination-action" id="darkModeToggleButton">
+            <span class="material-icons pagination-action-icon" id="darkModeToggleIcon">
+                dark_mode
+            </span>
+        </a>
+        
+        
+        
+        
+    </div>
+</div>
+<div class="single-column-drawer-container" id="drawer"
+     v-bind:class="{ 'single-column-drawer-container-active': isDrawerOpen }">
+    <div class="drawer-content">
+        <div class="drawer-menu">
+            
+            
+            
                 
-                <p class="description">什么奇怪东西都有的博客</p>
-            </div>
-            <div>
-                <nav id="nav-menu" class="clearfix">
-                    <a class="" href="https://shenyimingdada.github.io/">首页</a>
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/posts">
+                    归档
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/categories">
+                    分类
+                </a>
+                
+            
+                
+                
+                
                     
-                    <a  href="https://shenyimingdada.github.io/archives/" title="归档">归档</a>
-                    
-                    <a  href="https://shenyimingdada.github.io/about/" title="关于">关于</a>
-                    
-                </nav>
-            </div>
+                
+                
+                
+                <a class="a-block drawer-menu-item active" href="/tags">
+                    标签
+                </a>
+                
+            
+                
+                
+                
+                
+                
+                <a class="a-block drawer-menu-item false" href="/index.xml">
+                    RSS
+                </a>
+                
+            
+            
         </div>
     </div>
-</header>
+</div>
+<transition name="fade">
+    <div id="drawer-mask" v-bind:class="{ 'single-column-drawer-mask': mounted }" v-if="isDrawerOpen" v-on:click="toggleDrawer"></div>
+</transition>
+<nav id="navBar" class="navbar sticky-top navbar-light single-column-nav-container">
+    <div id="navBackground" class="nav-background"></div>
+    <div class="container container-narrow nav-content">
+        <button id="nav_dropdown_btn" class="nav-dropdown-toggle" type="button" v-on:click="toggleDrawer">
+            <i class="material-icons">
+                menu
+            </i>
+        </button>
+        <a id="navTitle" class="navbar-brand" href="https://ShenYimingDaDa.github.io">
+            摆人日寄
+        </a>
+        
+        <button type="button" class="nav-darkmode-toggle" id="darkModeToggleButton2">
+            <i class="material-icons" id="darkModeToggleIcon2">
+                dark_mode
+            </i>
+        </button>
+        
+    </div>
+</nav>
+<div class="single-column-header-container" id="pageHead"
+     v-bind:style="{ transform: 'translateZ(0px) translateY('+.3*scrollY+'px)', opacity: 1-navOpacity }">
+    <a href="https://ShenYimingDaDa.github.io">
+        <div class="single-column-header-title">摆人日寄</div>
+        
+        <div class="single-column-header-subtitle">啊对对对。</div>
+        
 
-    <div id="body">
-        <div class="container">
-            <div class="col-group">
-
-                <div class="col-8" id="main">
-                    
-<header>
-    
-        <h1>共有2个标签</h1>
-    
-</header>
-<div class="post-archive">
-    
-    <h2><a href="https://shenyimingdada.github.io/tags/%E8%B7%AF%E4%BA%9A">路亚</a> (1)</h2>
-    <ul class="listing">
-        
-        <li>
-            <span class="date">2021/05/23</span>
-            <a href="https://shenyimingdada.github.io/2021/5/23/1.html" title="路亚入门 | 装备计划">路亚入门 | 装备计划</a>
-        </li>
-        
-    </ul>
-    
-    <h2><a href="https://shenyimingdada.github.io/tags/%E9%92%93%E9%B1%BC">钓鱼</a> (1)</h2>
-    <ul class="listing">
-        
-        <li>
-            <span class="date">2021/05/23</span>
-            <a href="https://shenyimingdada.github.io/2021/5/23/1.html" title="路亚入门 | 装备计划">路亚入门 | 装备计划</a>
-        </li>
-        
-    </ul>
-    
-
+    </a>
 </div>
 
-                    <footer id="footer">
-    <div>
-        &copy; 2022 <a href="https://shenyimingdada.github.io/">sym的博客 By sym</a>
-        
-    </div>
-    <br />
-    <div>
-        <div class="github-badge">
-            <a href="https://gohugo.io/" target="_black" rel="nofollow"><span class="badge-subject">Powered by</span><span class="badge-value bg-blue">Hugo</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://shenyimingdada.github.io/" target="_black"><span class="badge-subject">Design by</span><span class="badge-value bg-brightgreen">sym</span></a>
-        </div>
-        <div class="github-badge">
-            <a href="https://github.com/flysnow-org/maupassant-hugo" target="_black"><span class="badge-subject">Theme</span><span class="badge-value bg-yellowgreen">Maupassant</span></a>
-        </div>
-    </div>
-</footer>
+            <div id="content">
+                <div id="streamContainer" class="stream-container">
 
-
-
-<a id="rocket" href="#top"></a>
-<script type="text/javascript" src='/js/totop.js?v=0.0.0' async=""></script>
-
-
-
-    <script type="text/javascript" src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-
-
-
-
-    <script src='/js/douban.js'></script>
-
+    <div class="post-list-container post-list-container-shadow">
+        <a class="a-block">
+            <div class="post-item-wrapper post-item-wrapper-no-hover">
+                <div class="post-item post-item-no-gaps">
+                    <div class="post-item-info-wrapper">
+                        <div class="post-item-title post-item-title-small">
+                            Tags
+                        </div>
+                    </div>
                 </div>
-
-                <div id="secondary">
-    <section class="widget">
-        <form id="search" action='https://shenyimingdada.github.io/search/' method="get" accept-charset="utf-8" target="_blank" _lpchecked="1">
-      
-      <input type="text" name="q" maxlength="20" placeholder="Search">
-      <input type="hidden" name="sitesearch" value="https://shenyimingdada.github.io/">
-      <button type="submit" class="submit icon-search"></button>
-</form>
-    </section>
-    
-    <section class="widget">
-        <h3 class="widget-title">最近文章</h3>
-<ul class="widget-list">
-    
-    <li>
-        <a href="https://shenyimingdada.github.io/2021/5/23/1.html" title="路亚入门 | 装备计划">路亚入门 | 装备计划</a>
-    </li>
-    
-</ul>
-    </section>
-
-    
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/categories/'>分类</a></h3>
-<ul class="widget-list">
-    
-    <li><a href="https://shenyimingdada.github.io/categories/%E8%B7%AF%E4%BA%9A/">路亚 (1)</a></li>
-    
-</ul>
-    </section>
-
-    <section class="widget">
-        <h3 class="widget-title"><a href='/tags/'>标签</a></h3>
-<div class="tagcloud">
-    
-    <a href="https://shenyimingdada.github.io/tags/%E8%B7%AF%E4%BA%9A/">路亚</a>
-    
-    <a href="https://shenyimingdada.github.io/tags/%E9%92%93%E9%B1%BC/">钓鱼</a>
-    
-</div>
-    </section>
-
-    
-<section class="widget">
-    <h3 class="widget-title">友情链接</h3>
-    <ul class="widget-list">
+            </div>
+        </a>
         
-        <li>
-            <a target="_blank" href="https://shenyimingdada.github.io/" title="sym的博客">sym的博客</a>
-        </li>
         
-    </ul>
-</section>
+                <a href="https://ShenYimingDaDa.github.io/tags/http/" class="a-block">
+                    <div class="post-item-wrapper">
+                        <div class="post-item post-item-no-gaps">
+                            <div class="post-item-info-wrapper"> 
+                                <div class="post-item-title">
+                                    http
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="https://ShenYimingDaDa.github.io/tags/markdown/" class="a-block">
+                    <div class="post-item-wrapper">
+                        <div class="post-item post-item-no-gaps">
+                            <div class="post-item-info-wrapper"> 
+                                <div class="post-item-title">
+                                    markdown
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="https://ShenYimingDaDa.github.io/tags/scene/" class="a-block">
+                    <div class="post-item-wrapper">
+                        <div class="post-item post-item-no-gaps">
+                            <div class="post-item-info-wrapper"> 
+                                <div class="post-item-title">
+                                    scene
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="https://ShenYimingDaDa.github.io/tags/chinese/" class="a-block">
+                    <div class="post-item-wrapper">
+                        <div class="post-item post-item-no-gaps">
+                            <div class="post-item-info-wrapper"> 
+                                <div class="post-item-title">
+                                    Chinese
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+        
+                <a href="https://ShenYimingDaDa.github.io/tags/git/" class="a-block">
+                    <div class="post-item-wrapper">
+                        <div class="post-item post-item-no-gaps">
+                            <div class="post-item-info-wrapper"> 
+                                <div class="post-item-title">
+                                    git
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+        
+    </div>
 
 
-    <section class="widget">
-        <h3 class="widget-title">其它</h3>
-        <ul class="widget-list">
-            <li><a href="https://shenyimingdada.github.io/index.xml">文章 RSS</a></li>
-        </ul>
-    </section>
+
+                    </div>
+            </div>
+
+
+<div id="single-column-footer">
+
+PowerBy <a href="https://gohugo.io/getting-started/">HUGO</a>
+<br>
+
+
+&copy;
+	
+	This is a customized copyright.
+	
 </div>
             </div>
-        </div>
-    </div>
-</body>
-
+    
+    <script src="/js/journal.js"></script>
+    </body>
 </html>
