@@ -7,42 +7,49 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hant</language>
     <copyright>This is a customized copyright.</copyright>
-    <lastBuildDate>Sat, 12 Mar 2022 10:58:08 -0400</lastBuildDate><atom:link href="https://ShenYimingDaDa.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 01 Dec 2022 11:25:05 -0400</lastBuildDate>
+    <atom:link href="https://ShenYimingDaDa.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Test</title>
+      <link>https://ShenYimingDaDa.github.io/categories/test/</link>
+      <pubDate>Thu, 01 Dec 2022 11:25:05 -0400</pubDate>
+      <guid>https://ShenYimingDaDa.github.io/categories/test/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>SQL</title>
+      <link>https://ShenYimingDaDa.github.io/categories/sql/</link>
+      <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
+      <guid>https://ShenYimingDaDa.github.io/categories/sql/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Story</title>
+      <link>https://ShenYimingDaDa.github.io/categories/story/</link>
+      <pubDate>Fri, 08 Jul 2022 10:58:08 -0400</pubDate>
+      <guid>https://ShenYimingDaDa.github.io/categories/story/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Code</title>
       <link>https://ShenYimingDaDa.github.io/categories/code/</link>
       <pubDate>Sat, 12 Mar 2022 10:58:08 -0400</pubDate>
-      
       <guid>https://ShenYimingDaDa.github.io/categories/code/</guid>
       <description></description>
     </item>
-    
     <item>
       <title>Blog</title>
       <link>https://ShenYimingDaDa.github.io/categories/blog/</link>
       <pubDate>Sat, 13 Mar 2021 10:58:08 -0400</pubDate>
-      
       <guid>https://ShenYimingDaDa.github.io/categories/blog/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>Story</title>
-      <link>https://ShenYimingDaDa.github.io/categories/story/</link>
-      <pubDate>Tue, 09 Mar 2021 10:58:08 -0400</pubDate>
-      
-      <guid>https://ShenYimingDaDa.github.io/categories/story/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Test</title>
-      <link>https://ShenYimingDaDa.github.io/categories/test/</link>
+      <title>Linux</title>
+      <link>https://ShenYimingDaDa.github.io/categories/linux/</link>
       <pubDate>Thu, 14 Nov 2019 11:25:05 -0400</pubDate>
-      
-      <guid>https://ShenYimingDaDa.github.io/categories/test/</guid>
+      <guid>https://ShenYimingDaDa.github.io/categories/linux/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>
