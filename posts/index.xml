@@ -2,200 +2,214 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 摆人日寄</title>
-    <link>https://ShenYimingDaDa.github.io/posts/</link>
+    <link>https://shenyimingtech.github.io/posts/</link>
     <description>Recent content in Posts on 摆人日寄</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hant</language>
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Thu, 01 Dec 2022 11:25:05 -0400</lastBuildDate>
-    <atom:link href="https://ShenYimingDaDa.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shenyimingtech.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>ClashRelay简明指南</title>
-      <link>https://ShenYimingDaDa.github.io/posts/clashrelay%E7%AE%80%E6%98%8E%E6%8C%87%E5%8D%97/</link>
+      <link>https://shenyimingtech.github.io/posts/clashrelay%E7%AE%80%E6%98%8E%E6%8C%87%E5%8D%97/</link>
       <pubDate>Thu, 01 Dec 2022 11:25:05 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/clashrelay%E7%AE%80%E6%98%8E%E6%8C%87%E5%8D%97/</guid>
+      <guid>https://shenyimingtech.github.io/posts/clashrelay%E7%AE%80%E6%98%8E%E6%8C%87%E5%8D%97/</guid>
       <description>序言&#xA;关于代理，一直以来分成两派：自建 &amp;amp; 机场，但是各有优缺点。&#xA;自建：保护隐私、可以⾃⼰折腾，但⼀遇到被阻断，就得深夜焦头烂额地换新配置、换 ip 、换端口，或者某天路由变了速度就突然变很慢！ 机场：看⽚记录被公开挂出来、访问某网站访问不了。&#xA;那么有没有一种可以⼜快⼜稳⼜保护隐私⽆审计的办法呢？&#xA;有的！答案就是 Clash Relay Group + Prxoy Provider + LoadBlance/Fallback。&#xA;原理： Clash 的 relay 分组会把组内节点串成一个代理链，只需要将机场节点作为前置节点，⾃建节点作为后置节点，相当于只把机场作为跨境隧道，最终落地解密出真实流量的还是我们的⾃建节点。&#xA;你的电脑 &amp;lt;-&amp;gt; 机场 &amp;lt;-&amp;gt; ⾃建节点 &amp;lt;-&amp;gt; 交友⽹站&#xA;这样⼀来，机场不知道我们实际访问的⽹站，⽽我们的⾃建节点通过机场过境，也不怕被封了！&#xA;还可以购买很便宜的落地机，因为不⽤关⼼线路了！&#xA;这样就既能享受机场的便捷、⼜能保护⾃⼰的隐私了！&#xA;⾃建节点那边就算服务商有记录、也不知道我们的实际 ip 、只能看到机场的 ip ，&#xA;好！怎么实现呢？&#xA;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;- 超级简洁版教程来啦！&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-&#xA;我准备了⼀份写好的配置⽂件 配置文件：点击查看详细内容 port: 7890 socks-port: 7891 allow-lan: true mode: Rule log-level: info external-controller: :9090 proxies: # 把你的⾃建节点填到这⾥! # 像下⾯这样 - name: &#34;你的⾃建节点&#34; type: ss server: 8.8.8.8 port: 12345 cipher: aes-256-gcm password: 3afjadljfalfaeasdfga proxy-providers: Jichang: type: http url: # 然后把订阅转换的链接贴到这⾥!</description>
     </item>
     <item>
       <title>Dig简单实践</title>
-      <link>https://ShenYimingDaDa.github.io/posts/dig%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
+      <link>https://shenyimingtech.github.io/posts/dig%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
       <pubDate>Tue, 22 Nov 2022 11:25:05 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/dig%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
+      <guid>https://shenyimingtech.github.io/posts/dig%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
       <description>dig — DNS lookup utility&#xA;man page 开宗明义的说，dig 是个DNS 查找工具，也是跟CDN 打交道时最常用的指令之一。&#xA;白话的说明就是：用来查某个网址会连到哪台主机。&#xA;dig 最基本的使用方式是&#xA;dig example.com 加上一点点的参数，则是&#xA;dig [@server] [name] [type] name 代表你想查询的domain； type 代表record 类型，包含了A, AAAA, CNAME, ANY … 等，预设为A ；@server 则是指你想query 的DNS 服务器。&#xA;有趣的是，后面参数似乎是可以互换位置的，例如说&#xA;dig @168.95.1.1 any www.apple.com dig @168.95.1.1 www.apple.com any dig www.apple.com @168.95.1.1 any 以上三种输入会得到一样的结果，所以可能会在不同的用户或是说明页上看到不同的顺序。&#xA;以 www.google.com 为例，从我所在的地方得到这个结果(省去部份输出，以下皆同)：dig [www.google.com](http://www.google.com/)&#xA;; &amp;lt;&amp;lt;&amp;gt;&amp;gt; DiG 9.10.6 &amp;lt;&amp;lt;&amp;gt;&amp;gt; www.google.com ;; QUESTION SECTION: ;www.google.com. IN A ;; ANSWER SECTION: www.google.com. 208 IN A 172.</description>
     </item>
     <item>
       <title>Curl简单实践</title>
-      <link>https://ShenYimingDaDa.github.io/posts/curl/</link>
+      <link>https://shenyimingtech.github.io/posts/curl/</link>
       <pubDate>Fri, 04 Nov 2022 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/curl/</guid>
+      <guid>https://shenyimingtech.github.io/posts/curl/</guid>
       <description>curl 是一个通过网络协定传输数据的指令，用很白话的说法就是让你「连接到网站」。&#xA;基本使用 curl http://www.example.com 这样会将 response body print 出来，为了要快速验证网站的回应是否正常，我比较常用的形式是&#xA;curl -iL http://www.example.com -i 代表显示 header + body ，如果只要 header 的话，可以使用大写的 I 。&#xA;-L 则代表跟随网址的 redirect 规则。例如说，现在的主流网站用 HTTP 连接会自动转成 HTTPs 就可以通过 curl 来观察。&#xA;curl -IL http://google.com --- HTTP/1.1 301 Moved Permanently Location: http://www.google.com/ Content-Type: text/html; charset=UTF-8 Date: Mon, 30 Aug 2021 23:42:39 GMT Expires: Wed, 29 Sep 2021 23:42:39 GMT Cache-Control: public, max-age=2592000 Server: gws Content-Length: 219 X-XSS-Protection: 0 X-Frame-Options: SAMEORIGIN HTTP/1.</description>
     </item>
     <item>
       <title>通过Systemctl自定义Service</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E9%80%9A%E8%BF%87systemctl%E8%87%AA%E5%AE%9A%E4%B9%89service/</link>
+      <link>https://shenyimingtech.github.io/posts/%E9%80%9A%E8%BF%87systemctl%E8%87%AA%E5%AE%9A%E4%B9%89service/</link>
       <pubDate>Sat, 29 Oct 2022 11:25:05 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E9%80%9A%E8%BF%87systemctl%E8%87%AA%E5%AE%9A%E4%B9%89service/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E9%80%9A%E8%BF%87systemctl%E8%87%AA%E5%AE%9A%E4%B9%89service/</guid>
       <description>如果要在 Linux 上设置一个开机自启，出现问题自动重启，并且有良好日志的程序，比较流行的方法有 supervisord、systemd，除此之外，还有 upstart、runit 等类似的工具。 但是自从 systemd 被 ubuntu、centos 等主流 Linux 发行版应用以来，systemd 渐渐成为主流方案。&#xA;如果你需要跨平台 (Linux/MacOSX/FreeBSD) 的方案，那么建议使用 supervisord，如果只需要支持 Linux 则建议选用 systemd.&#xA;要自定义一个服务，需要在 /usr/lib/systemd/system/ 下添加一个配置文件：&amp;lt;software-name&amp;gt;.service&#xA;如果 /usr/lib/systemd/system/ 不存在，可考虑使用 /lib/systemd/system/ 或 /etc/systemd/system/&#xA;ExecXXX 中的命令，均可以正常使用转义字符以及环境变量插值语法，比如用 \ 结尾表示换行，用 $Xxx 获取环境变量。&#xA;配置文件的内容说明：&#xA;[Unit]: 服务的启动顺序与依赖关系 Description: 当前服务的简单描述 After: 当前服务（&amp;lt;software-name&amp;gt;.service）需要在这些服务启动后，才启动 Before: 和 After 相反，当前服务需要在这些服务启动前，先启动 Wants：表示当前服务&amp;#34;弱依赖&amp;#34;于这些服务。即当前服务依赖于它们，但是没有它们，当前服务也能正常运行。 Requires: 表示&amp;#34;强依赖&amp;#34;关系，即如果该服务启动失败或异常退出，那么当前服务也必须退出。 [Service] 服务运行参数的设置 Type=forking 后台运行的形式 PIDFile=/software-name/pid pid文件路径 EnvironmentFile=/xxx/prod.env 通过文件设定环境变量，注意这东西不支持环境变量的插值语法 ${xxx} WorkingDirectory=/xxx/xxx 工作目录 ExecStartPre 为启动做准备的命令 ExecStart 服务的具体运行命令（对非 workingdirectory 的文件，必须用绝对路径！ ExecReload 重载命令，如果程序支持 HUP 信号的话，通常将此项设为 `/bin/kill -HUP $MAINPID` ExecStop 停止命令 ExecStartPre：启动服务之前执行的命令 ExecStartPost：启动服务之后执行的命令 ExecStopPost：停止服务之后执行的命令 RuntimeDirectory=xxxx RuntimeDirectoryMode=0775 PrivateTmp=True 表示给服务分配独立的临时空间 RestartSec 自动重启当前服务间隔的秒数 Restart 定义何种情况 Systemd 会自动重启当前服务，可能的值包括always（总是重启）、on-success、on-failure 等 # 程序的 user 和 group User=ryan Group=ryan 注意：启动、重载、停止命令全部要求使用绝对路径 [Install] 定义如何安装这个配置文件，即怎样做到开机启动。 # Target的含义是服务组，表示一组服务。 WantedBy=multi-user.</description>
     </item>
     <item>
+      <title>集中隔离最佳实践&#34;</title>
+      <link>https://shenyimingtech.github.io/posts/%E9%9B%86%E4%B8%AD%E9%9A%94%E7%A6%BB%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</link>
+      <pubDate>Fri, 28 Oct 2022 11:25:05 -0400</pubDate>
+      <guid>https://shenyimingtech.github.io/posts/%E9%9B%86%E4%B8%AD%E9%9A%94%E7%A6%BB%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/</guid>
+      <description>人在江湖飘，哪能不挨刀。&#xA;人在江湖飘，哪能不挨刀。&#xA;生活在 2022 年的中国，“行政区被封”、“小区被封”、“被判密接”、“被赋码”、“被转运”等等这些 “被们” 都是随机发生的，而且无法为个人左右。所以要让自己做好准备，减少这些不可控的东西给自己带来的负面影响。&#xA;本文以我 “被判密接集中隔离” 的主观经验总结，结合 2022 年 11 月 18 日 “二十条” 规定编写，适用于当地不加码的情况，希望读者朋友们身体健康，运气爆棚，永远都用不上。&#xA;我去过的集中隔离酒店同时也是入境隔离酒店，所以也许适用于入境中国的小伙伴们。&#xA;〇、如何 “被判”、隔离多久、在什么地方隔离 **变颜色之前的确认电话务必要确认红码原因，务必要确认 “他们认为的你，真的是你”。**因为我被误判过一次，工作人员在电话里上来就 “通知” 我是密接，说是通过监控判定，还带时间点，语气非常肯定，我自己都信了。最后在我的要求下，看了监控截图发现并不是我🤦‍♂️，最后没给红码。对我来说是虚惊一场但足见 “误判” 案例不乏有之。&#xA;一旦健康码变成了黄码红码之后，不管真实情况如何，目前我并未见过申诉有效的例子（黄码申诉转绿其实只是做了核酸后转绿）。但大家如果遇到了，还是可以申诉的，万一中了头彩，申诉居然管用了呢。申诉的电话可以询问居委会，他们会给出街道办和区的电话号码。居委会是民间自治组织，不是政府官员，通常都是邻居，人很好的。&#xA;“第九版” 判定密接的原则有 9 条，前 8 条很清晰但可以忽略，只看万能的第 9 条就可以了:&#xA;现场调查人员评估认为其他符合密切接触者判定标准的人员&#xA;一般从 “被判跟患者密切接触” 那天开始算起，集中隔离 5 天，然后转居家隔离 3 天（所谓 5+3）。&#xA;比如 “判了”1 月 1 日密接，那么 1 月 5 日会收到酒店通知，说第二天（1 月 6 日）可以离开了。1 月 6 日上午做核酸检测的时候会发一张解除隔离通知书，签名后等待大巴来接走。送回自己居住地社区，由居委会签名接收，然后居家隔离。&#xA;隔离酒店地点一般是居住地所在行政区的同个区，费用由区政府承担。比如人在广州市天河区被判密接，但居住在番禺区，则由番禺区政府来安排隔离酒店。&#xA;但是如果所在区有疫情爆发，比如 2022 年 11 月居住在广州市海珠区，那么也有可能允许居家隔离，社区（也即居委会）会上门贴封条，贴 “门磁”（即门窗感应器）。当然也有另一种可能：直接被运走到完全不知道什么城市什么地区的盲盒隔离点。&#xA;有些社区会说清楚什么时间开始封，什么时间解除，但也有的一句话不说，没有统一标准。&#xA;但这些信息跟全国其他城市一样，并不作为权威，具体执行时按 “行政区防疫办” 说了算。比如我的例子是穗康码显示隔离方式 “居家”，但依然会被“贯彻落实” 集中隔离。打电话申诉会被告知“你就听街道说的就好啦”（请辅以不耐烦爹味语气食用）。</description>
+    </item>
+    <item>
       <title>SQL 基础实践（三）</title>
-      <link>https://ShenYimingDaDa.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B03/</link>
+      <link>https://shenyimingtech.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B03/</link>
       <pubDate>Sun, 18 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B03/</guid>
+      <guid>https://shenyimingtech.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B03/</guid>
       <description>数据类型是限制我们可以在表里存储什么数据的一种方法。不过，对于许多应用来说， 这种限制实在是太粗糙了。比如，一个包含产品价格的字段应该只接受正数。 但是没有哪种标准数据类型只接受正数。 另外一个问题是你可能需要根据其它字段或者其它行的数据来约束字段数据。比如， 在一个包含产品信息的表中，每个产品编号都应该只有一行。&#xA;对于这些问题，SQL 允许你在字段和表上定义约束。约束允许你对数据施加任意控制。 如果用户企图在字段里存储违反约束的数据，那么就会抛出一个错误。 这种情况同时也适用于数值来自默认值的情况。&#xA;外键约束声明一个字段 (或者一组字段) 的数值必须匹配另外一个表中出现的数值。 创建外键约束的前提是，该外键所在的表已经存在，并且外键必须是 UNIQUE 的。（主键默认 UNIQUE 且 NOT NULL）&#xA;CREATE TABLE &amp;lt;表名&amp;gt; ( &amp;lt;字段名&amp;gt; &amp;lt;类型&amp;gt; PRIMARY KEY, &amp;lt;字段名&amp;gt; &amp;lt;类型&amp;gt; REFERENCES &amp;lt;外键所在的表名&amp;gt; (&amp;lt;字段名&amp;gt;), -- 这创建了一个外键 ... ); 还有另一种语法，它支持以多个字段为外键（字段约束也可以写成表约束，也就是放在一个独立的行中。而反过来很可能不行）：&#xA;CREATE TABLE &amp;lt;表名&amp;gt; ( &amp;lt;字段名1&amp;gt; &amp;lt;类型&amp;gt; PRIMARY KEY, &amp;lt;字段名2&amp;gt; &amp;lt;类型&amp;gt; &amp;lt;字段名3&amp;gt; &amp;lt;类型&amp;gt; ... FOREIGN KEY (&amp;lt;字段名2&amp;gt;, &amp;lt;字段名3&amp;gt;) REFERENCES &amp;lt;外键所在的表名&amp;gt; (&amp;lt;字段名4&amp;gt;, &amp;lt;字段名5&amp;gt;) ); 一个表也可以包含多个外键约束。这个特性用于实现表之间的多对多关系。 比如你有关于产品和订单的表，但现在你想允许一个订单可以包含多种产品 (上面那个结构是不允许这么做的)，你可以使用这样的结构：&#xA;CREATE TABLE products ( product_no integer PRIMARY KEY, name text, price numeric ); CREATE TABLE orders ( order_id integer PRIMARY KEY, shipping_address text, .</description>
     </item>
     <item>
       <title>SQL 基础实践（二）</title>
-      <link>https://ShenYimingDaDa.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B02/</link>
+      <link>https://shenyimingtech.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B02/</link>
       <pubDate>Fri, 16 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B02/</guid>
+      <guid>https://shenyimingtech.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B02/</guid>
       <description>本笔记整理自《SQL 基础教程》、《MySQL 必知必会》和网上资料。个人笔记不保证正确。&#xA;将 SELECT 查询包装成一个虚拟表，该虚拟表就被称为视图。（因为只是一个包装，因此视图的数据也会随着原表的更新而更新）&#xA;用途： 简化复杂的 SQL 查询，用它替换子查询，能降低查询的嵌套深度。 SELECT 查询的重用，减少重复查询。 … 创建视图： CREATE VIEW &amp;lt;视图名称&amp;gt; (&amp;lt;视图列名1&amp;gt;, &amp;lt;视图列名2&amp;gt;... ) AS &amp;lt;SELECT 语句&amp;gt;; 其中 SELECT 的结果列和视图列名一一对应。 3. 视图的限制 1. 视图的 SELECT 子句，不能包含 ORDER BY 子句。因为视图也是表，而表是集合，它没有顺序。（也有些 DB 支持该用法，但不通用） 1. 视图的更新：只在很有限的条件下，才能在视图上使用 INSERT/DELETE/UPDATE 这样的变更数据的语句。（视图应该只用于检索，能不更新就不要更新它） 4. 删除视图：DROP VIEW &amp;lt;视图名称&amp;gt;;&#xA;子查询，其实就是一次性的视图:&#xA;SELECT ... FROM ( SELECT ... -- 这就是一个子查询：嵌套的 select 语句 ) AS &amp;lt;别名&amp;gt; ... 上面的查询的 FROM 子句中，给另一 SELECT 子句定义了一个别名，并将它作为了查询对象。这就是一个子查询。&#xA;子查询不仅能用于 FROM，还能用在 WHERE 子句等很多地方。</description>
     </item>
     <item>
       <title>SQL 基础实践（一）</title>
-      <link>https://ShenYimingDaDa.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B01/</link>
+      <link>https://shenyimingtech.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B01/</link>
       <pubDate>Wed, 14 Sep 2022 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B01/</guid>
+      <guid>https://shenyimingtech.github.io/posts/sql-%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B01/</guid>
       <description>本笔记整理自《SQL 基础教程》、《MySQL 必知必会》和网上资料。个人笔记不保证正确。&#xA;SQL，即结构化查询语言，是为访问与操作关系数据库中的数据而设计的语言。&#xA;关系数据库以行 (row) 为单位读写数据 SQL 根据功能的不同，可分为三类（其中 DML 用得最多，增删查改嘛） DDL(Data Definition Language, 数据定义语言): CREATE/DROP/ALTER DML(Data Manipulation Language, 数据操作语言): SELECT/INSERT/UPDATE/DELETE DCL(Data Control Language, 数据控制语言): COMMIT/ROLLBACK/GRANT/REVOKE SQL 语句要以分号结尾。换行在 SQL 中不表示结束，而等同于空格。 SQL 不区分 ** 关键字 (Keyword)** 的大小写，但是描述符就不一定了。 这里有个坑：MySQL 中，数据库和表其实就是数据目录下的目录和文件，因而，操作系统的敏感性决定数据库名和表名 是否大小写敏感。这就意味着数据库名和表名在 Windows 中是大小写不敏感的，而在大多数类型的 Unix/Linux 系统中是大小写敏感的。（注意仅指数据库名和表名）可通过修改配置文件的lower_case_table_names属性来统一这一行为。 而字段名、字段内容都是内部数据，是操作系统无关的。它们的大小写敏感性，由 MySQL 的的校对（COLLATE）规则来控制。该规则体现在 MySQL 的 校对字符集（COLLATION）的后缀上：比如 utf8 字符集，utf8_general_ci表示不区分大小写，这个是 utf8 字符集默认的校对规则；utf8_general_cs 表示区分大小写，utf8_bin 表示二进制比较，同样也区分大小写 。 SQL 中的字符串和日期需要用单引号引用起来，日期有特定格式年-月-日 修改字符集：set names &amp;lt;字符集名&amp;gt; 记住在 MySQL 中，utf-8mb4 才是完全的 utf-8 字符集。&#xA;创建数据库 CREATE DATABASE &amp;lt;数据库名称&amp;gt;; 关系表的设计，要确保把信息分解成多个表，一类信息一个表，各表通过某些常用的，基本不会改变的值（即关系表设计中的关系，也常称为外键）互相关联。尽量不要有冗余数据。</description>
     </item>
     <item>
       <title>[译] NAT 穿透是如何工作的：技术原理及企业级实践（Tailscale, 2020）</title>
-      <link>https://ShenYimingDaDa.github.io/posts/nat%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/</link>
+      <link>https://shenyimingtech.github.io/posts/nat%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/</link>
       <pubDate>Fri, 08 Jul 2022 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/nat%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/</guid>
+      <guid>https://shenyimingtech.github.io/posts/nat%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/</guid>
       <description>译者序 本文翻译自 2020 年的一篇英文博客： How NAT traversal works。&#xA;设想这样一个问题：在北京和上海各有一台局域网的机器（例如一台是家里的台式机，一 台是连接到星巴克 WiFi 的笔记本），二者都是私网 IP 地址，但可以访问公网， 如何让这两台机器通信呢？&#xA;既然二者都能访问公网，那最简单的方式当然是在公网上架设一个中继服务器： 两台机器分别连接到中继服务，后者完成双向转发。这种方式显然有很大的性能开销，而 且中继服务器很容易成为瓶颈。&#xA;有没有办法不用中继，让两台机器直接通信呢？&#xA;如果有一定的网络和协议基础，就会明白这事儿是可能的。Tailscale 的这篇史诗级长文由浅入深地展示了这种 “可能”，如果完全实现本文所 介绍的技术，你将得到一个企业级的 NAT / 防火墙穿透工具。 此外，如作者所说，去中心化软件领域中的许多有趣想法，简化之后其实都变成了 跨过公网（互联网）实现端到端直连 这一问题，因此本文的意义并不仅限于 NAT 穿透本身。&#xA;由于译者水平有限，本文不免存在遗漏或错误之处。如有疑问，请查阅原文。&#xA;以下是译文。&#xA;1.1 背景：IPv4 地址短缺，引入 NAT 1.2 需求：两台经过 NAT 的机器建立点对点连接 1.3 方案：NAT 穿透 1.3.1 两个必备前提：UDP + 能直接控制 socket 1.3.2 保底方式：中继 1.4 挑战：有状态防火墙和 NAT 设备 2.1 有状态防火墙 2.1.1 默认行为（策略） 2.1.2 如何区分入向和出向包 2.2 防火墙朝向（face-off）与穿透方案 2.2.1 防火墙朝向相同 场景特点：服务端 IP 可直接访问 穿透方案：客户端直连服务端，或 hub-and-spoke 拓扑 2.</description>
     </item>
     <item>
       <title>ssh端口转发</title>
-      <link>https://ShenYimingDaDa.github.io/posts/vault/</link>
+      <link>https://shenyimingtech.github.io/posts/vault/</link>
       <pubDate>Sat, 14 May 2022 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/vault/</guid>
+      <guid>https://shenyimingtech.github.io/posts/vault/</guid>
       <description>Vault 是 hashicorp 推出的 secrets 管理、加密即服务与权限管理工具。&#xA;Vault 是 hashicorp 推出的 secrets 管理、加密即服务与权限管理工具。它的功能简介如下：&#xA;secrets 管理：支持保存各种自定义信息、自动生成各类密钥，vault 自动生成的密钥还能自动轮转 (rotate) 认证方式：支持接入各大云厂商的账号体系（比如阿里云 RAM 子账号体系）或者 LDAP 等进行身份验证，不需要创建额外的账号体系。 权限管理：通过 policy，可以设定非常细致的 ACL 权限。 密钥引擎：也支持接管各大云厂商的账号体系（比如阿里云 RAM 子账号体系），实现 API Key 的自动轮转。 支持接入 kubernetes rbac 认证体系，通过 serviceaccount+role 为每个 Pod 单独配置认证角色。 支持通过 sidecar/init-container 将 secrets 注入到 pod 中，或者通过 k8s operator 将 vault 数据同步到 k8s secrets 中 在使用 Vault 之前，我们是以携程开源的 Apollo 作为微服务的分布式配置中心。&#xA;Apollo 在国内非常流行。它功能强大，支持配置的继承，也有提供 HTTP API 方便自动化。 缺点是权限管理和 secrets 管理比较弱，也不支持信息加密，不适合直接存储敏感信息。因此我们现在切换到了 Vault.&#xA;目前我们本地的 CI/CD 流水线和云上的微服务体系，都是使用的 Vault 做 secrets 管理.</description>
     </item>
     <item>
       <title>HTTP状态码速查表</title>
-      <link>https://ShenYimingDaDa.github.io/posts/http-%E7%8A%B6%E6%80%81%E7%A0%81%E9%80%9F%E6%9F%A5/</link>
+      <link>https://shenyimingtech.github.io/posts/http-%E7%8A%B6%E6%80%81%E7%A0%81%E9%80%9F%E6%9F%A5/</link>
       <pubDate>Sat, 12 Mar 2022 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/http-%E7%8A%B6%E6%80%81%E7%A0%81%E9%80%9F%E6%9F%A5/</guid>
+      <guid>https://shenyimingtech.github.io/posts/http-%E7%8A%B6%E6%80%81%E7%A0%81%E9%80%9F%E6%9F%A5/</guid>
       <description>1xx 状态：表示临时响应 1xx 系列状态码，表示请求已收到，需要请求者继续执行操作的状态代码。&#xA;继续（Continue）&#xA;请求者应当继续提出请求。 服务器返回此代码表示已收到请求的第一部分，正在等待其余部&#xA;切换协议（Switching Protocols）&#xA;请求者已要求服务器切换协议，服务器已确认并做好了的切换的准备&#xA;2xx 状态：表示成功响应 2xx 系列状态码，表示成功处理了请求的状态代码。&#xA;成功（Success）&#xA;服务器已成功处理了请求。 通常，这表示服务器提供了请求的网页&#xA;已创建（Created）&#xA;请求成功，并且服务器创建了新的资源&#xA;已接受（Accepted）&#xA;服务器已接受请求，但尚未处理&#xA;非授权信息（Non Authoritative Information）&#xA;服务器已成功处理了请求，但返回的信息可能来自另一来源&#xA;从 HTTP/1.1 开始支持&#xA;无内容（No Content）&#xA;服务器成功处理了请求，但没有返回任何内容&#xA;重置内容（Reset Content）&#xA;服务器成功处理了请求，但没有返回任何内容。该响应要求浏览器重置它所显示的内容&#xA;部分内容（Partial Content）&#xA;由于客户端发送了 range 头信息，服务器成功返回了部分资源&#xA;该状态码由 RFC 7233 定义&#xA;3xx 状态：表示重定向 3xx 系列状态码，表示要完成请求，需要进一步操作。 通常，这些状态代码用来重定向。&#xA;多种选择（Multiple Choices）&#xA;针对不同请求，服务器可执行多种操作。服务器可根据请求者的选择执行对应的操作，或者提供一个操作列表供请求者选择&#xA;永久移动（Moved Permanently）&#xA;请求的网页已永久移动到新位置。对于 GET 或 HEAD 请求，服务器返回此响应时，会自动将请求者转到新位置&#xA;资源已找到（临时移动）（Found (Moved Temporarily)）&#xA;告诉客户端，请到另一处 URL 获取需要的资源（该状态已被 303 和 307 状态取代）&#xA;查看其他位置（See Other）</description>
     </item>
     <item>
       <title>写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%AB/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%AB/</link>
       <pubDate>Mon, 08 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%AB/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%AB/</guid>
       <description>《写给开发人员的实用密码学》系列文章目录:&#xA;写给开发人员的实用密码学（一）—— 概览&#xA;写给开发人员的实用密码学（二）—— 哈希函数&#xA;写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF&#xA;写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG&#xA;写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS&#xA;写给开发人员的实用密码学（六）—— 对称密钥加密算法&#xA;写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC&#xA;写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议&#xA;待续&#xA;2021-01-17: 完成 TLS 协议简介、数字证书介绍、数字证书的申请或生成方法、mTLS 介绍、TLS 协议的破解手段&#xA;2022-03-13 ~ 2022-03-14: 重新整理补充，改写为《写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议》，整合进我的实用密码学系列文章中&#xA;补充 PKI 公钥基础架构及 X509 证书标准介绍 TODO:&#xA;补充 TLS 协议的逆向手段 基于 cfssl 详细介绍 PKI 的各项组件 基于 PKI 的应用服务间身份识别技术：SPIFF ID SPIFF ID 是云原生领域的标准，服务网格项目 Istio 就使用了 SPIFF ID 作为安全命名 现代人的日常生活中，HTTPS 协议几乎无处不在，我们每天浏览网页时、用手机刷京东淘宝时、甚至每天秀自己绿色的健康码时，都在使用 HTTPS 协议。</description>
     </item>
     <item>
       <title>写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%83/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%83/</link>
       <pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%83/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%83/</guid>
       <description>本文部分内容翻译自 Practical-Cryptography-for-Developers-Book&#xA;这篇文章中会涉及到一些数论知识，本文不会详细介绍这些数学知识，可以在有疑惑的时候自行查找相关知识，或者选择跳过相关内容。&#xA;《写给开发人员的实用密码学》系列文章目录：&#xA;写给开发人员的实用密码学（一）—— 概览 写给开发人员的实用密码学（二）—— 哈希函数 写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF 写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG 写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS 写给开发人员的实用密码学（六）—— 对称密钥加密算法 写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC 写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议 待续 在介绍非对称密钥加密方案和算法之前，我们首先要了解公钥密码学的概念。&#xA;从第一次世界大战、第二次世界大战到 1976 年这段时期密码的发展阶段，被称为「近代密码阶段」。 在近代密码阶段，所有的密码系统都使用对称密码算法——使用相同的密钥进行加解密。 当时使用的密码算法在拥有海量计算资源的现代人看来都是非常简单的，我们经常看到各种讲述一二战的谍战片，基本都包含破译电报的片段。&#xA;第一二次世界大战期间，无线电被广泛应用于军事通讯，围绕无线电通讯的加密破解攻防战极大地影响了战局。&#xA;公元 20 世纪初，第一次世界大战进行到关键时刻，英国破译密码的专门机构「40 号房间」利用缴获的德国密码本破译了著名的「齐默尔曼电报」，其内容显示德国打算联合墨西哥对抗可能会参战的美国，这促使美国放弃中立对德宣战，从而彻底改变了一战的走势。&#xA;1943 年，美国从破译的日本电报中得知山本五十六将于 4 月 18 日乘中型轰炸机，由 6 架战斗机护航，到中途岛视察。美国总统罗斯福亲自做出决定截击山本，山本乘坐的飞机在去往中途岛的路上被美军击毁，战争天才山本五十六机毁人亡，日本海军从此一蹶不振。&#xA;此外，在二次世界大战中，美军将印第安纳瓦霍土著语言作为密码使用，并特别征募使用印第安纳瓦霍通信兵。在二次世界大战日美的太平洋战场上，美国海军军部让北墨西哥和亚历桑那印第安纳瓦霍族人使用纳瓦霍语进行情报传递。纳瓦霍语的语法、音调及词汇都极为独特，不为世人所知道，当时纳瓦霍族以外的美国人中，能听懂这种语言的也就一二十人。这是密码学和语言学的成功结合，纳瓦霍语密码成为历史上从未被破译的密码。&#xA;在 1976 年 Malcolm J. Williamson 公开发表了现在被称为「Diffie–Hellman 密钥交换，DHKE」的算法，并提出了「公钥密码学」的概念，这是密码学领域一项划时代的发明，它宣告了「近代密码阶段」的终结，是「现代密码学」的起点。&#xA;言归正传，对称密码算法的问题有两点：&#xA;「需要安全的通道进行密钥交换」，早期最常见的是面对面交换密钥 每个点对点通信都需要使用不同的密钥，密钥的管理会变得很困难 如果你需要跟 100 个朋友安全通信，你就要维护 100 个不同的对称密钥，而且还得确保它们不泄漏。 这会导致巨大的「密钥交换」跟「密钥保存与管理」的成本。「公钥密码学」最大的优势就是，它解决了这两个问题：&#xA;「公钥密码学」可以在不安全的信道上安全地进行密钥交换，第三方即使监听到通信过程，但是（几乎）无法破解出密钥。 每个人只需要公开自己的公钥，就可以跟其他任何人安全地通信。 如果你需要跟 100 个朋友安全通信，你们只需要公开自己的公钥。发送消息时使用对方的公钥加密，接收消息时使用自己的私钥解密即可。 只有你自己的私钥需要保密，所有的公钥都可以公开，这就显著降低了密钥的维护成本。 因此公钥密码学成为了现代密码学的基石，而「公钥密码学」的诞生时间 1976 年被认为是现代密码学的开端。</description>
     </item>
     <item>
       <title>写给开发人员的实用密码学（六）—— 对称密钥加密算法</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%AD/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%AD/</link>
       <pubDate>Sat, 06 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%AD/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%85%AD/</guid>
       <description>本文主要翻译自 Practical-Cryptography-for-Developers-Book，笔者补充了部分代码示例。&#xA;《写给开发人员的实用密码学》系列文章目录：&#xA;写给开发人员的实用密码学（一）—— 概览 写给开发人员的实用密码学（二）—— 哈希函数 写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF 写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG 写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS 写给开发人员的实用密码学（六）—— 对称密钥加密算法 写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC 写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议 待续 两个常用动词：&#xA;加密：cipher 或者 encrypt 解密：decipher 或者 decrypt 另外有几个名词有必要解释：&#xA;cipher: 指用于加解密的「密码算法」，有时也被直接翻译成「密码」 cryptographic algorithm: 密码学算法，泛指密码学相关的各类算法 ciphertext: 密文，即加密后的信息。对应的词是明文 plaintext password: 这个应该不需要解释，就是我们日常用的各种字符或者数字密码，也可称作口令。 passphrase: 翻译成「密码词组」或者「密碼片語」，通常指用于保护密钥或者其他敏感数据的一个 password 如果你用 ssh/gpg/openssl 等工具生成或使用过密钥，应该对它不陌生。 在密码学里面，最容易搞混的词估计就是「密码」了，cipher/password/passphrase 都可以被翻译成「密码」，需要注意下其中区别。&#xA;在密码学中，有两种加密方案被广泛使用：「对称加密」与「非对称加密」。&#xA;对称加密是指，使用相同的密钥进行消息的加密与解密。因为这个特性，我们也称这个密钥为「共享密钥（Shared Secret Key）」，示意图如下：&#xA;现代密码学中广泛使用的对称加密算法（ciphers）有：AES（AES-128、AES-192、AES-256）、ChaCha20、Twofish、IDEA、Serpent、Camelia、RC6、CAST 等。 其中绝大多数都是「块密码算法（Block Cipher）」或者叫「分组密码算法」，这种算法一次只能加密固定大小的块（例如 128 位）； 少部分是「流密码算法（Stream Cipher）」，流密码算法将数据逐字节地加密为密文流。&#xA;通过使用称为「分组密码工作模式」的技术，可以将「分组密码算法」转换为「流密码算法」。&#xA;即使计算机进入量子时代，仍然可以沿用当前的对称密码算法。因为大多数现代对称密钥密码算法都是抗量子的（quantum-resistant），这意味当使用长度足够的密钥时，强大的量子计算机无法破坏其安全性。 目前来看 256 位的 AES/Twofish 在很长一段时间内都将是 量子安全 的。</description>
     </item>
     <item>
       <title>写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BA%94/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BA%94/</link>
       <pubDate>Fri, 05 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BA%94/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BA%94/</guid>
       <description>本文主要翻译自 Practical-Cryptography-for-Developers-Book，笔者额外补充了 DHKE/ECDH 的代码示例，以及「PFS 完美前向保密协议 DHE/ECDHE」一节。&#xA;《写给开发人员的实用密码学》系列文章目录：&#xA;写给开发人员的实用密码学（一）—— 概览 写给开发人员的实用密码学（二）—— 哈希函数 写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF 写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG 写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS 写给开发人员的实用密码学（六）—— 对称密钥加密算法 写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC 写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议 待续 在密码学中密钥交换是一种协议，功能是在两方之间安全地交换加密密钥，其他任何人都无法获得密钥的副本。通常各种加密通讯协议的第一步都是密钥交换。 密钥交换技术具体来说有两种方案：&#xA;密钥协商：协议中的双方都参与了共享密钥的生成，两个代表算法是 Diffie-Hellman (DHKE) 和 Elliptic-Curve Diffie-Hellman (ECDH) 密钥传输：双方中其中一方生成出共享密钥，并通过此方案将共享密钥传输给另一方。密钥传输方案通常都通过公钥密码系统实现。比如在 RSA 密钥交换中，客户端使用它的私钥加密一个随机生成的会话密钥，然后将密文发送给服务端，服务端再使用它的公钥解密出会话密钥。 密钥交换协议无时无刻不在数字世界中运行，在你连接 WiFi 时，或者使用 HTTPS 协议访问一个网站，都会执行密钥交换协议。 密钥交换可以基于匿名的密钥协商协议如 DHKE，一个密码或预共享密钥，一个数字证书等等。有些通讯协议只在开始时交换一次密钥，而有些协议则会随着时间的推移不断地交换密钥。&#xA;认证密钥交换（AKE）是一种会同时认证相关方身份的密钥交换协议，比如个人 WiFi 通常就会使用 password-authenticated key agreement (PAKE)，而如果你连接的是公开 WiFi，则会使用匿名密钥交换协议。&#xA;目前有许多用于密钥交换的密码算法。其中一些使用公钥密码系统，而另一些则使用更简单的密钥交换方案（如 Diffie-Hellman 密钥交换）；其中有些算法涉及服务器身份验证，也有些涉及客户端身份验证；其中部分算法使用密码，另一部分使用数字证书或其他身份验证机制。下面列举一些知名的密钥交换算法：&#xA;Diffie-Hellman Key Exchange (DHКЕ) ：传统的、应用最为广泛的密钥交换协议 椭圆曲线 Diffie-Hellman (ECDH) RSA-OAEP 和 RSA-KEM（RSA 密钥传输） PSK（预共享密钥） SRP（安全远程密码协议） FHMQV（Fully Hashed Menezes-Qu-Vanstone） ECMQV（Ellictic-Curve Menezes-Qu-Vanstone） CECPQ1（量子安全密钥协议） 迪菲 - 赫尔曼密钥交换（Diffie–Hellman Key Exchange）是一种安全协议，它可以让双方在完全没有对方任何预先信息的条件下通过不安全信道安全地协商出一个安全密钥，而且任何窃听者都无法得知密钥信息。 这个密钥可以在后续的通讯中作为对称密钥来加密通讯内容。</description>
     </item>
     <item>
       <title>写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9B%9B/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9B%9B/</link>
       <pubDate>Thu, 04 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9B%9B/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E5%9B%9B/</guid>
       <description>本文主要翻译自 Practical-Cryptography-for-Developers-Book&#xA;《写给开发人员的实用密码学》系列文章目录：&#xA;写给开发人员的实用密码学（一）—— 概览 写给开发人员的实用密码学（二）—— 哈希函数 写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF 写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG 写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS 写给开发人员的实用密码学（六）—— 对称密钥加密算法 写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC 写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议 待续 在密码学中，随机性（熵）扮演了一个非常重要的角色，许多密码学算法都要求使用一个不可预测的随机数，只有在生成的随机数不可预测时，这些算法才能保证其安全性。&#xA;比如 MAC 算法中的 key 就必须是一个不可预测的值，在这个条件下 MAC 值才是不可伪造的。&#xA;另外许多的高性能算法如快速排序、布隆过滤器、蒙特卡洛方法等，都依赖于随机性，如果随机性可以被预测，或者能够找到特定的输入值使这些算法变得特别慢，那黑客就能借此对服务进行 DDoS 攻击，以很小的成本达到让服务不可用的目的。&#xA;Pseudo-Random Number Generators(PRNG) 是一种数字序列的生成算法，它生成出的数字序列的统计学属性跟真正的随机数序列非常相似，但它生成的伪随机数序列并不是真正的随机数序列！因为该序列完全依赖于提供给 PRNG 的初始值，这个值被称为 PRNG 的种子。&#xA;算法流程如下，算法的每次迭代都生成出一个新的伪随机数：&#xA;如果输入的初始种子是相同的，PRNG 总是会生成出相同的伪随机数序列，因此 PRNG 也被称为 Deterministic Random Bit Generator (DRBG)，即确定性随机比特生成器。&#xA;实际上目前也有所谓的「硬件随机数生成器 TRNG」能生成出真正的随机数，但是因为 PRNG 的高速、低成本、可复现等原因，它仍然被大量使用在现代软件开发中。&#xA;PRNG 可用于从一个很小的初始随机性（熵）生成出大量的伪随机性，这被称做「拉伸（Stretching）」。&#xA;PRNG 被广泛应用在前面提到的各种依赖随机性的高性能算法以及密码学算法中。&#xA;我们在上一篇文章的「MAC 的应用」一节中提到，一个最简单的 PRNG 可以直接使用 MAC 算法实现，用 Python 实现如下：</description>
     </item>
     <item>
       <title>写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%89/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%89/</link>
       <pubDate>Wed, 03 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%89/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%89/</guid>
       <description>本文主要翻译自 Practical-Cryptography-for-Developers-Book 《写给开发人员的实用密码学》系列文章目录：&#xA;写给开发人员的实用密码学（一）—— 概览 写给开发人员的实用密码学（二）—— 哈希函数 写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF 写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG 写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS 写给开发人员的实用密码学（六）—— 对称密钥加密算法 写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC 写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议 待续 MAC 消息认证码，即 Message Authentication Code，是用于验证消息的一小段信息。 换句话说，能用它确认消息的真实性——消息来自指定的发件人并且没有被篡改。&#xA;MAC 值通过允许验证者（也拥有密钥）检测消息内容的任何更改来保护消息的数据完整性及其真实性。&#xA;一个安全的 MAC 函数，跟加密哈希函数非常类似，也拥有如下特性：&#xA;快速：计算速度要足够快 确定性：对同样的消息跟密钥，应该总是产生同样的输出 难以分析：对消息或密钥的任何微小改动，都应该使输出完全发生变化 不可逆：从 MAC 值逆向演算出消息跟密钥应该是不可行的。 无碰撞：找到具有相同哈希的两条不同消息应该非常困难（或几乎不可能） 但是 MAC 算法比加密哈希函数多一个输入值：密钥，因此也被称为 keyed hash functions，即「加密钥的哈希函数」。&#xA;如下 Python 代码使用 key 跟 消息计算出对应的 HMAC-SHA256 值：&#xA;import hashlib, hmac, binascii key = b&amp;#34;key&amp;#34; msg = b&amp;#34;some msg&amp;#34; mac = hmac.</description>
     </item>
     <item>
       <title>写给开发人员的实用密码学（二）—— 哈希函数</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BA%8C/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BA%8C/</link>
       <pubDate>Tue, 02 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BA%8C/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%BA%8C/</guid>
       <description>本文主要翻译自 Practical-Cryptography-for-Developers-Book&#xA;《写给开发人员的实用密码学》系列文章目录：&#xA;写给开发人员的实用密码学（一）—— 概览 写给开发人员的实用密码学（二）—— 哈希函数 写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF 写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG 写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS 写给开发人员的实用密码学（六）—— 对称密钥加密算法 写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC 写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议 待续 哈希函数，或者叫散列函数，是一种从任何一种数据中创建一个数字指纹（也叫数字摘要）的方法，散列函数把数据压缩（或者放大）成一个长度固定的字符串。&#xA;哈希函数的输入空间（文本或者二进制数据）是无限大，但是输出空间（一个固定长度的摘要）却是有限的。将「无限」映射到「有限」，不可避免的会有概率不同的输入得到相同的输出，这种情况我们称为碰撞（collision）。&#xA;一个简单的哈希函数是直接对输入数据 / 文本的字节求和。 它会导致大量的碰撞，例如 hello 和 ehllo 将具有相同的哈希值。&#xA;更好的哈希函数可以使用这样的方案：它将第一个字节作为状态，然后转换状态（例如，将它乘以像 31 这样的素数），然后将下一个字节添加到状态，然后再次转换状态并添加下一个字节等。 这样的操作可以显着降低碰撞概率并产生更均匀的分布。&#xA;加密哈希函数（也叫密码学哈希函数）是指一类有特殊属性的哈希函数。&#xA;一个好的「加密哈希函数」必须满足抗碰撞（collision-resistant）和不可逆（irreversible）这两个条件。 抗碰撞是指通过统计学方法（彩虹表）很难或几乎不可能猜出哈希值对应的原始数据，而不可逆则是说攻击者很难或几乎不可能从算法层面通过哈希值逆向演算出原始数据。&#xA;具体而言，一个理想的加密哈希函数，应当具有如下属性：&#xA;快速：计算速度要足够快 确定性：对同样的输入，应该总是产生同样的输出 难以分析：对输入的任何微小改动，都应该使输出完全发生变化 不可逆：从其哈希值逆向演算出输入值应该是不可行的。这意味着没有比暴力破解更好的破解方法 无碰撞：找到具有相同哈希值的两条不同消息应该非常困难（或几乎不可能） 现代加密哈希函数（如 SHA2 和 SHA3）都具有上述几个属性，并被广泛应用在多个领域，各种现代编程语言和平台的标准库中基本都包含这些常用的哈希函数。&#xA;现代密码学哈希函数（如 SHA2, SHA3, BLAKE2）都被认为是量子安全的，无惧量子计算机的发展。&#xA;加密哈希函数被广泛用于文件完整性校验。如果你从网上下载的文件计算出的 SHA256 校验和（checksum）跟官方公布的一致，那就说明文件没有损坏。&#xA;但是哈希函数自身不能保证文件的真实性，目前来讲，真实性通常是 TLS 协议要保证的，它确保你在 openssl 网站上看到的「SHA256 校验和」真实无误（未被篡改）。</description>
     </item>
     <item>
       <title>写给开发人员的实用密码学（一）—— 概览</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%80/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%80/</link>
       <pubDate>Mon, 01 Nov 2021 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%80/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%86%99%E7%BB%99%E5%BC%80%E5%8F%91%E4%BA%BA%E5%91%98%E7%9A%84%E5%AE%9E%E7%94%A8%E5%AF%86%E7%A0%81%E5%AD%A6%E4%B8%80/</guid>
       <description>本文主要翻译自 Practical-Cryptography-for-Developers-Book 《写给开发人员的实用密码学》系列文章目录： 写给开发人员的实用密码学（一）—— 概览 写给开发人员的&amp;hellip;&amp;hellip;&#xA;本文主要翻译自 Practical-Cryptography-for-Developers-Book&#xA;《写给开发人员的实用密码学》系列文章目录：&#xA;写给开发人员的实用密码学（一）—— 概览 写给开发人员的实用密码学（二）—— 哈希函数 写给开发人员的实用密码学（三）—— MAC 与密钥派生函数 KDF 写给开发人员的实用密码学（四）—— 安全随机数生成器 CSPRNG 写给开发人员的实用密码学（五）—— 密钥交换 DHKE 与完美前向保密 PFS 写给开发人员的实用密码学（六）—— 对称密钥加密算法 写给开发人员的实用密码学（七）—— 非对称密钥加密算法 RSA/ECC 写给开发人员的实用密码学（八）—— 数字证书与 TLS 协议 待续 你是软件开发人员吗？有时你会需要在日常工作中使用哈希、加密或数字签名等密码学工具吗？ 你认为密码学很复杂，充满了数学知识，而且只适合书呆子吗？ 不，不是这样滴，每个开发人员都可以学习如何使用加密算法。&#xA;从开发人员的角度理解密码学概念不需要你是一个厉害的数学家。 这个系列的文章将尽量以最浅显的方式教你应用密码学的基础知识，而且包含大量循序渐进的代码示例和实践练习——就像你学习 Web 开发、数据库或 APP 开发一样。&#xA;没错，如果你能够学会 Web 开发或 RESTful 服务，那么你也完全可以学会实用密码学。这就像学习一个新的 API 或一个新的 Web 开发框架，只要掌握了概念 + 加密库 API + 工具 + 最佳实践，你就学会了实用密码学~&#xA;在这个系列中，你将学习如何使用密码算法和密码系统，如哈希、MAC 码和密钥派生函数 (KDF)、随机生成器、密钥交换协议、对称密码算法、加密方案、非对称密码系统、公钥密码学、椭圆曲线、数字签名和量子安全加密算法，以及现代加密工具和库。&#xA;密码学已经从第一代广泛应用的密码学算法（比如已经退役的 MD5 跟 DES），发展到现代密码学算法（如 SHA-3, Argon2 以及 ChaCha20）。</description>
     </item>
     <item>
       <title>如何拯救一台 glibc 被干掉的 Linux 服务器</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%A6%82%E4%BD%95%E6%8B%AF%E6%95%91%E4%B8%80%E5%8F%B0-glibc-%E8%A2%AB%E5%B9%B2%E6%8E%89%E7%9A%84-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%A6%82%E4%BD%95%E6%8B%AF%E6%95%91%E4%B8%80%E5%8F%B0-glibc-%E8%A2%AB%E5%B9%B2%E6%8E%89%E7%9A%84-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Sun, 09 May 2021 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%A6%82%E4%BD%95%E6%8B%AF%E6%95%91%E4%B8%80%E5%8F%B0-glibc-%E8%A2%AB%E5%B9%B2%E6%8E%89%E7%9A%84-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%A6%82%E4%BD%95%E6%8B%AF%E6%95%91%E4%B8%80%E5%8F%B0-glibc-%E8%A2%AB%E5%B9%B2%E6%8E%89%E7%9A%84-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>今天正要下班，群里有人问我：&#xA;『我们有个新管理员上的 glibc 给删了，现在什么命令都跑不了了，还有救吗？』&#xA;我说，glibc 也能弄掉，莫不是 rpm &amp;ndash;force?&#xA;回答是肯定的。&#xA;glibc 被卸载，负责加载所有. so 的 ld.so 也就没了，因此运行几乎所有外部命令时都会得到一句『找不到 ld-linux-x-y-z.so.2』的出错提示。比如 ls，比如 cp，以及所有动态链接的命令。&#xA;这是一台放置于另外一个大洲的客户 IDC 的物理服务器。我说不行就光盘引导修复，但不知道什么原因他们又连不上服务器的 HP iLO 工具。&#xA;干着急也不是办法。万幸的是 rpm &amp;ndash;force 的小伙子的 ssh 登录 shell 还连着。我说那不行就只能你自己一个 byte 一个 byte 先敲一个 static linked 的 binary 出来，这是可以运行的。&#xA;话说完，我就大概想到该怎么办了。&#xA;用 bash 的内部命令 printf &amp;lsquo;\xaa\xbb\xcc&amp;rsquo; &amp;gt; file 可以生成任意内容的文件 另外找台同配置的 Linux，用 xxd 或 hexdump 配合一点点脚本，或者直接用 python 写个小脚本，把 ld.so 文件转储成若干条 printf &amp;lsquo;&amp;hellip;&amp;rsquo; &amp;raquo; file 的命令（考虑到 bash 单行命令的长度限制，我没有尝试只生成一条命令） copy 2) 中生成的命令，paste 到出事的 Linux shell 中运行 这样至少 ld.</description>
     </item>
     <item>
       <title>命令行Clash指南</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%9C%A8-linux-%E4%B8%8A%E4%BD%BF%E7%94%A8-clash-%E4%BD%9C%E4%BB%A3%E7%90%86-verne-in-github/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%9C%A8-linux-%E4%B8%8A%E4%BD%BF%E7%94%A8-clash-%E4%BD%9C%E4%BB%A3%E7%90%86-verne-in-github/</link>
       <pubDate>Mon, 29 Mar 2021 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%9C%A8-linux-%E4%B8%8A%E4%BD%BF%E7%94%A8-clash-%E4%BD%9C%E4%BB%A3%E7%90%86-verne-in-github/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%9C%A8-linux-%E4%B8%8A%E4%BD%BF%E7%94%A8-clash-%E4%BD%9C%E4%BB%A3%E7%90%86-verne-in-github/</guid>
       <description>去年年中的时候切换到 macOS，一直用 ClashX，时隔半年又迁移回了 Linux，发现原先使用的 V2rayL 虽然能用，但是有些简陋，并且不支持分流，并且如果一个地址失效了，还需要手动地进行切换。&#xA;去年年中的时候切换到 macOS，一直用 ClashX，时隔半年又迁移回了 Linux，发现原先使用的 V2rayL 虽然能用，但是有些简陋，并且不支持分流，并且如果一个地址失效了，还需要手动地进行切换。所以看到 Linux 的 Clash 可以自动进行流量切换的时候，就试一下。&#xA;Clash 是 Go 语言实现的，跨平台代理工具，支持 Shadowsocks/v2ray，支持规则分流等等。&#xA;可以在官方页面下载。&#xA;Linux 下载对应的 linux-amd64 即可。&#xA;在用了很长一段时间的 Clash 命令行之后，我发现 Clash For Windows 这个应用也能够在 Linux 下使用。所以最近就切换到了这个应用上。&#xA;另外欢迎订阅使用 EV Proxy 注册之后一键订阅即可使用。&#xA;下载对应的二进制，比如默认放到 ~/Downloads 目录，在终端进入该目录。&#xA;gunzip clash-linux-amd64-v0.18.0.gz sudo mv clash-linux-amd64-v1.4.2 /usr/local/bin/clash sudo chmod +x /usr/local/bin/clash ./clash clash 启动后会在 ~/.config/clash 目录生成配置文件。&#xA;ls -al ~/.config/clash .rw-r--r-- 10 einverne 23 Mar 19:30 config.yaml .rw-r--r-- 4.0M einverne 23 Mar 19:30 Country.</description>
     </item>
     <item>
       <title>会用 Markdown 还不够，还得知道排版规范</title>
-      <link>https://ShenYimingDaDa.github.io/posts/markdown%E6%8E%92%E7%89%88%E8%A7%84%E8%8C%83/</link>
+      <link>https://shenyimingtech.github.io/posts/markdown%E6%8E%92%E7%89%88%E8%A7%84%E8%8C%83/</link>
       <pubDate>Sat, 13 Mar 2021 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/markdown%E6%8E%92%E7%89%88%E8%A7%84%E8%8C%83/</guid>
+      <guid>https://shenyimingtech.github.io/posts/markdown%E6%8E%92%E7%89%88%E8%A7%84%E8%8C%83/</guid>
       <description>本文将会介绍 Markdown 中&#xA;Markdown 标记的使用规范&#xA;使用空格、空行、缩进等元素优化排版的方法&#xA;常用中文标点符号规范&#xA;这些是 Markdown 写作的比较常见的排版格式指导，同时也是排版格式约定。遵守它们能使得排版更加美观，更加方便阅读，也能让你有固定的模式可依，降低写作时对于排版的心智负担。&#xA;Markdown 标记的使用规范 标题 文章的顶层标题使用二级标题（有时文章的标题并不需要写在文章里，比如大多数博客有专门的位置填写文章标题，此时这级标题可以省略）&#xA;每个小节的标题使用三级标题&#xA;小节中进一步分层组织时使用四级标题&#xA;尽量少用五级标题和六级标题，考虑用有序列表和无序列表代替&#xA;完全不用一级标题&#xA;粗体、斜体 需要强调某处内容时使用粗体，如：&#xA;中文全角标点符号占一个汉字宽度，英文半角标点占半个汉字宽度（亦即一个字母宽度）。&#xA;在中文排版中不使用斜体。在英文排版中可用斜体表达强调，或表示书名、题目。&#xA;引用块 以下情况使用引用块：&#xA;引述内容时（也可直接用引号替代）&#xA;作示例时&#xA;给出提示、补充、警告等额外说明时&#xA;行内代码 某一行文字中嵌入简短代码时使用行内代码，如：&#xA;打开 Linux 虚拟终端，输入 echo &#39;Hello World&#39;。恭喜，你已经入门 Shell 了！&#xA;代码块 展示多行代码时使用代码块，也可用于 XML、JSON、配置项等。尽量在使用代码块时给出语言标识，因为大多数 Markdown 工具会针对该语言高亮显示其中的语言元素。如：&#xA;public class Main { public static void main(String[] args) { System.out.println(&amp;#34;Hello World&amp;#34;); } } 将显示为：&#xA;public class Main { public static void main(String[] args) { System.out.println(&amp;#34;Hello World&amp;#34;); }} 图片 Markdown 中使用 !</description>
     </item>
     <item>
       <title> Vim命令速查</title>
-      <link>https://ShenYimingDaDa.github.io/posts/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</link>
+      <link>https://shenyimingtech.github.io/posts/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</link>
       <pubDate>Tue, 09 Mar 2021 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</guid>
+      <guid>https://shenyimingtech.github.io/posts/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</guid>
       <description>本速查表按分类列出了 Vim 常用的命令和快捷键，数量较多，可使用 Ctrl + F 进行查找。&#xA;全局命令 命令 / 快捷键功能描述:h[elp] 关键字显示指定关键字的帮助:sav[eas] 文件名另存为...:clo[se]关闭当前窗口:ter[minal]打开新的终端窗口K打开光标所在单词对应的 man 页面 移动光标 命令 / 快捷键功能描述h左移光标j下移光标k上移光标l右移光标H移动到当前页面顶部M移动到当前页面中间L移动到当前页面底部w移动到下个单词开头W移动到下个单词开头（单词含标点）e移动到下个单词结尾E移动到下个单词结尾（单词含标点）b移动到上个单词开头B移动到上个单词开头（单词含标点）%跳转到配对的符号0移动到行首^移动到行首的非空白符$移动到行尾g_移动到行内最后一个非空白符gg移动到文件第一行G移动到文件最后一行5gg 或 5G移动到第 5 行fx移动到字符 x 下次出现的位置tx移动到字符 x 下次出现的位置的前一个字符Fx移动到字符 x 上次出现的位置Tx移动到字符 x 上次出现的位置的后一个字符;重复之前的 f、t、F、T 操作,反向重复之前的 f、t、F、T 操作}移动到下一个段落（当编辑代码时则为函数／代码块）{移动到上一个段落（当编辑代码时则为函数／代码块）zz移动屏幕使光标居中Ctrl + e向下移动屏幕一行（保持光标不动）Ctrl + y向上移动屏幕一行（保持光标不动）Ctrl + b向上滚动一屏Ctrl + f向下滚动一屏Ctrl + d向下滚动半屏Ctrl + u向上滚动半屏 插入模式（插入 / 追加文本） 命令 / 快捷键功能描述i从光标前开始插入字符I从行首开始插入字符a从光标后开始插入字符A从行尾开始插入字符o在当前行之下另起一行，开始插入字符O在当前行之上另起一行，开始插入字符ea从当前单词末尾开始插入Ctrl + h在插入模式下，删除光标前的字符Ctrl + w在插入模式下，删除光标前的单词Ctrl + j在插入模式下，另起一行Ctrl + t在插入模式下，向右缩进，宽度由 shiftwidth 控制Ctrl + d在插入模式下，向左缩进，宽度由 shiftwidth 控制Ctrl + n在插入模式下，在光标之前插入自动补全的下一个匹配项Ctrl + p在插入模式下，在光标之前插入自动补全的上一个匹配项Ctrl + rx在当前光标处插入 x 寄存器的内容Esc退出插入模式 编辑文本 命令 / 快捷键功能描述r替换当前字符J将下一行合并到当前行，并在两部分文本之间插入一个空格gJ将下一行合并到当前行，两部分文本之间不含空格gwip重新调整段落g~切换整个文本的大小写（即大写变小写，小写变大写）gu把整个文本改成小写gU把整个文本改成大写cc 或 S将光标所在的行删除，然后进入插入模式C 或 c$删除光标所在位置到行尾的所有文本，然后进入插入模式ciw将光标所在的单词删除，然后进入插入模式cw从光标位置开始，修改单词s删除当前字符，然后进入插入模式xp将当前字符后移uundo - 撤销最近一次操作U恢复 / 撤销最后修改的行Ctrl + rredo - 重做（和 u 相反）.</description>
     </item>
     <item>
       <title>Tmux教程</title>
-      <link>https://ShenYimingDaDa.github.io/posts/tmux-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
+      <link>https://shenyimingtech.github.io/posts/tmux-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
       <pubDate>Mon, 09 Mar 2020 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/tmux-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://shenyimingtech.github.io/posts/tmux-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
       <description>Tmux 是一个终端复用器（terminal multiplexer），非常有用，属于常用的开发工具。&#xA;本文介绍如何使用 Tmux。&#xA;一、Tmux 是什么？ 1.1 会话与进程 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称 &amp;ldquo;窗口&amp;rdquo;），在里面输入命令。用户与计算机的这种临时的交互，称为一次 &amp;ldquo;会话&amp;rdquo;（session） 。&#xA;会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。&#xA;一个典型的例子就是，SSH 登录远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。&#xA;为了解决这个问题，会话与窗口可以 &amp;ldquo;解绑&amp;rdquo;：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话 &amp;ldquo;绑定&amp;rdquo; 其他窗口。&#xA;1.2 Tmux 的作用 Tmux 就是会话与窗口的 &amp;ldquo;解绑&amp;rdquo; 工具，将它们彻底分离。&#xA;（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。&#xA;（2） 它可以让新窗口 &amp;ldquo;接入&amp;rdquo; 已经存在的会话。&#xA;（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。&#xA;（4）它还支持窗口任意的垂直和水平拆分。&#xA;类似的终端复用器还有 GNU Screen。Tmux 与它功能相似，但是更易用，也更强大。&#xA;二、基本用法 2.1 安装 Tmux 一般需要自己安装。&#xA;# Ubuntu 或 Debian $ sudo apt-get install tmux # CentOS 或 Fedora $ sudo yum install tmux # Mac $ brew install tmux 2.</description>
     </item>
     <item>
       <title>socat&amp;&amp;netcat最佳实践.</title>
-      <link>https://ShenYimingDaDa.github.io/posts/-socat-netcat/</link>
+      <link>https://shenyimingtech.github.io/posts/-socat-netcat/</link>
       <pubDate>Thu, 14 Nov 2019 11:25:05 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/-socat-netcat/</guid>
+      <guid>https://shenyimingtech.github.io/posts/-socat-netcat/</guid>
       <description>文中的命令均在 macOS Big Sur 和 openSUSE Tumbleweed 上测试通过&#xA;netcat(network cat) 是一个历史悠久的网络工具包，被称作 TCP/IP 的瑞士军刀，各大 Linux 发行版都有默认安装 openbsd 版本的 netcat，它的命令行名称为 nc.&#xA;而 socat(socket cat)，官方文档描述它是 &amp;quot;netcat++&amp;quot; (extended design, new implementation)，项目比较活跃，kubernetes-client(kubectl) 底层就是使用的它做各种流量转发。&#xA;在不方便安装 socat 的环境中，我们可以使用系统自带的 netcat. 而在其他环境，可以考虑优先使用 socat.&#xA;socat 的基本命令格式：&#xA;给 socat 提供两个地址，socat 干的活就是把两个地址的流对接起来。左边地址的输出传给右边，同时又把右边地址的输出传给左边，也就是一个双向的数据管道。&#xA;听起来好像没啥特别的，但是实际上计算机网络干的活也就是数据传输而已，却影响了整个世界，不可小觑它的功能。&#xA;socat 支持非常多的地址类型：-/stdio，TCP, TCP-LISTEN, UDP, UDP-LISTEN, OPEN, EXEC, SOCKS, PROXY 等等，可用于端口监听、链接，文件和进程读写，代理桥接等等。&#xA;socat 的功能就是这么简单，命令行参数也很简洁，唯一需要花点精力学习的就是它各种地址的定义和搭配写法。 · 而 netcat 定义貌似没这么严谨，可以简单的理解为网络版的 cat 命令 2333&#xA;各发行版都自带 netcat，包名通常为 nc-openbsd，因此这里只介绍 socat 的安装方法：&#xA;# Debian/Ubuntu sudo apt install socat # CentOS/RedHat sudo yum install socat # macOS brew install socat 其他发行版基本也都可以使用包管理器安装 socat</description>
     </item>
     <item>
       <title>ssh端口转发</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-ssh-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E5%91%BD%E4%BB%A4/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-ssh-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E5%91%BD%E4%BB%A4/</link>
       <pubDate>Thu, 14 Nov 2019 11:25:05 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-ssh-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E5%91%BD%E4%BB%A4/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%BD%BB%E5%BA%95%E6%90%9E%E6%87%82-ssh-%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91%E5%91%BD%E4%BB%A4/</guid>
       <description>SSH 端口转发（隧道）功能强大、用途广泛，仅仅一行代码便可以将两台主机联系起来，对特定的访问请求进行代理。正确书写 SSH 命令是实现一切的基础。然而许多关于端口转发命令参数的介绍都是浅入深出：罗列名词却不加解释，给出实例却不讲如何举一反三。因而在此尝试整理一份更清晰的使用指引，不涉及原理。不足之处欢迎评论区交流。&#xA;一　基本连接 SSH 基本的连接命令是：&#xA;ssh username@hostname 这里牵扯到了两台主机，一是执行命令、运行 SSH 客户端的主机，我们称为本地主机 A【Host A】；二是接收连接请求、运行 SSH 服务器的主机，我们称为远程主机 B【Host B】。通过密码或密钥等方式验证后，SSH 连接建立，主机 A 可以使用命令行对主机 B 实施远程控制。&#xA;以上命令中，username 是主机 B 上已登录的用户名，hostname 则是主机 B 的设备名、域名或 IP 等可以在网络（局域网或互联网）上定位的名称。&#xA;端口转发涉及的主机较多，这是引起名词混乱的原因之一。在此不深究用词问题，仅以字母代表之。如无特殊说明，SSH 连接都建立在由主机 A 到主机 B 间，SSH 命令都在主机 A 上被执行。&#xA;二　本地端口转发 顾名思义，本地端口转发是将应用【application client】对于本地主机 A 指定端口 X 的访问请求转发给主机 B，交由主机 B 对另一指定主机 C 的指定端口 Z 发起访问。命令如下：&#xA;ssh -L 主机A端口X:主机C:主机C端口Z username@hostname&#xD;# 简单理解为：将对A:X的访问转变成对C:Z的访问 客户端在执行端口转发命令的同时，实际上也执行了基本的连接命令。多出来的部分中，「-L」旗标表示使用「本地端口转发」选项，之后是用冒号分隔开的三个需要指定的项。原理上，主机 C 可以是任何能够被主机 B 识别到的设备，也可以是主机 B 自身。</description>
     </item>
     <item>
+      <title>中文文本测试</title>
+      <link>https://shenyimingtech.github.io/posts/chinese/</link>
+      <pubDate>Thu, 14 Nov 2019 11:25:05 -0400</pubDate>
+      <guid>https://shenyimingtech.github.io/posts/chinese/</guid>
+      <description>这样看来， 邓拓在不经意间这样说过，越是没有本领的就越加自命不凡。这不禁令我深思。 我们不得不面对一个非常尴尬的事实，那就是， 一般来说， 所谓中午吃什么，关键是中午吃什么需要如何写。 伏尔泰说过一句富有哲理的话，坚持意志伟大的事业需要始终不渝的精神。这启发了我， 那么， 对我个人而言，中午吃什么不仅仅是一个重大的事件，还可能会改变我的人生。 这样看来， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 一般来讲，我们都必须务必慎重的考虑考虑。 黑格尔说过一句富有哲理的话，只有永远躺在泥坑里的人，才不会再掉进坑里。这启发了我， 我们不得不面对一个非常尴尬的事实，那就是， 既然如何， 在这种困难的抉择下，本人思来想去，寝食难安。&#xA;我认为， 而这些并不是完全重要，更加重要的问题是， 了解清楚中午吃什么到底是一种怎么样的存在，是解决一切问题的关键。 中午吃什么因何而发生？ 而这些并不是完全重要，更加重要的问题是， 卢梭在不经意间这样说过，浪费时间是一桩大罪过。这启发了我， 既然如此， 从这个角度来看， 歌德在不经意间这样说过，意志坚强的人能把世界放在手中像泥块一样任意揉捏。我希望诸位也能好好地体会这句话。 我认为， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 莎士比亚在不经意间这样说过，人的一生是短的，但如果卑劣地过这一生，就太长了。带着这句话，我们还要更加慎重的审视这个问题： 带着这些问题，我们来审视一下中午吃什么。 中午吃什么因何而发生？ 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 布尔沃曾经说过，要掌握书，莫被书掌握；要为生而读，莫为读而生。这似乎解答了我的疑惑。 而这些并不是完全重要，更加重要的问题是， 生活中，若中午吃什么出现了，我们就不得不考虑它出现了的事实。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 带着这些问题，我们来审视一下中午吃什么。 生活中，若中午吃什么出现了，我们就不得不考虑它出现了的事实。 我认为， 一般来说， 中午吃什么，到底应该如何实现。 我们不得不面对一个非常尴尬的事实，那就是， 所谓中午吃什么，关键是中午吃什么需要如何写。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 现在，解决中午吃什么的问题，是非常非常重要的。　我认为， 而这些并不是完全重要，更加重要的问题是， 了解清楚中午吃什么到底是一种怎么样的存在，是解决一切问题的关键。 中午吃什么因何而发生？ 而这些并不是完全重要，更加重要的问题是， 卢梭在不经意间这样说过，浪费时间是一桩大罪过。这启发了我， 既然如此， 从这个角度来看， 歌德在不经意间这样说过，意志坚强的人能把世界放在手中像泥块一样任意揉捏。我希望诸位也能好好地体会这句话。 我认为， 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 这种事实对本人来说意义重大，相信对这个世界也是有一定意义的。 莎士比亚在不经意间这样说过，人的一生是短的，但如果卑劣地过这一生，就太长了。带着这句话，我们还要更加慎重的审视这个问题： 带着这些问题，我们来审视一下中午吃什么。 中午吃什么因何而发生？ 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 布尔沃曾经说过，要掌握书，莫被书掌握；要为生而读，莫为读而生。这似乎解答了我的疑惑。 而这些并不是完全重要，更加重要的问题是， 生活中，若中午吃什么出现了，我们就不得不考虑它出现了的事实。 本人也是经过了深思熟虑，在每个日日夜夜思考这个问题。 带着这些问题，我们来审视一下中午吃什么。 生活中，若中午吃什么出现了，我们就不得不考虑它出现了的事实。 我认为， 一般来说， 中午吃什么，到底应该如何实现。 我们不得不面对一个非常尴尬的事实，那就是， 所谓中午吃什么，关键是中午吃什么需要如何写。 我们一般认为，抓住了问题的关键，其他一切则会迎刃而解。 现在，解决中午吃什么的问题，是非常非常重要的。</description>
+    </item>
+    <item>
       <title>Git命令速查表</title>
-      <link>https://ShenYimingDaDa.github.io/posts/git-%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</link>
+      <link>https://shenyimingtech.github.io/posts/git-%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</link>
       <pubDate>Tue, 09 Apr 2019 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/git-%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</guid>
+      <guid>https://shenyimingtech.github.io/posts/git-%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</guid>
       <description>创建命令 Git 命令说明git clone &amp;lt;url&amp;gt;克隆远程仓库git init初始化本地 git 仓库（即创建新的本地仓库） 本地更改 Git 命令说明git status查看当前分支状态git diff查看已跟踪文件的变更git add &amp;lt;file&amp;gt;将指定的文件添加到暂存区git add .将所有有变更的文件添加到暂存区git commit -a提交所有本地修改git commit -m &#34;xxx&#34;把已添加至暂存区的文件执行提交，并以 xxx 作为本次提交的描述git commit --amend -m &#34;xxx&#34;修改上一次提交（请勿用该命令修改已发布的提交）git commit -am &#34;xxx&#34;该命令是 git add . 和 git commit -m &#34;xxx&#34; 的快捷方式git stash暂存当前修改，将所有置为 HEAD 状态git stash list查看所有暂存列表git stash push把当前工作区的文件暂存到临时空间git stash pop把文件从临时空间中恢复到当前工作区 提交历史 Git 命令说明git log查看提交日志git log -n显示 n 行日志，n 为整数git log --stat查看本地提交日志git show &amp;lt;commit&amp;gt;查看提交日志及相关变动文件git show HEAD查看 HEAD 提交日志git show HEAD^查看 HEAD 的上一个版本提交日志。另外，git show HEAD^^ 是查看上 2 个版本的提交日志；git show HEAD^5 是查看上 5 个版本的提交日志git blame &amp;lt;file&amp;gt;对于指定文件，逐行显示提交的哈希 ID、提交者、提交日期以及修改的内容git whatchanged显示提交历史，以及每次提交变更的文件 分支和标签 Git 命令说明git branch查看本地分支git branch -r查看远程分支git branch -a查看所有分支（本地和远程）git branch --merged查看所有分支已合并到当前分支的分支git branch --no-merged查看所有分支未合并到当前分支的分支git branch -m &amp;lt;new-branch&amp;gt;把当前分支的名称改成 new-branch；如果 new-branch 已存在，将不会执行改名git branch -M &amp;lt;new-branch&amp;gt;强制把当前分支的名称改成 new-branch（即使 new-branch 已存在）git branch -m &amp;lt;old-branch&amp;gt; &amp;lt;new-branch&amp;gt;把分支 old-branch 的名称改成 new-branch，如果 new-branch 已存在，将不会执行改名git branch -M &amp;lt;old-branch&amp;gt; &amp;lt;new-branch&amp;gt;强制把分支 old-branch 的名称改成 new-branch（即使 new-branch 已存在）git checkout &amp;lt;branch-name&amp;gt;切换到 branch-name 分支git branch &amp;lt;new-branch&amp;gt;新建分支（也可以用 git checkout -b &amp;lt;new-branch&amp;gt;）git branch --track &amp;lt;new&amp;gt; &amp;lt;remote&amp;gt;基于远程分支创建一个新分支，同 git checkout --track &amp;lt;remote/branch&amp;gt;git branch -d &amp;lt;branch-name&amp;gt;删除本地分支git tag列出所有本地标签git tag &amp;lt;tag-name&amp;gt;基于最新的提交创建标签git tag -d &amp;lt;tag-name&amp;gt;删除标签 删除命令 Git 命令说明git rm &amp;lt;file&amp;gt;删除文件（将从磁盘中删除文件）git rm -r &amp;lt;directory&amp;gt;递归删除指定目录下的文件git rm --cached &amp;lt;file&amp;gt;停止跟踪文件，不会从磁盘中删除 合并和衍合 Git 命令说明git merge &amp;lt;branch&amp;gt;合并指定分支到当前分支，保留两个git rebase &amp;lt;branch&amp;gt;合并指定分支到当前分支，只保留一个git rebase --abort终止 rebase 操作，即回到执行 rebase 之前的状态git rebase --continue解决冲突后继续执行 rebasegit mergetool使用配置文件指定的 mergetool 解决冲突git add &amp;lt;resolved-file&amp;gt;</description>
     </item>
     <item>
       <title>Linux 中的虚拟网络接口</title>
-      <link>https://ShenYimingDaDa.github.io/posts/linux-%E4%B8%AD%E7%9A%84%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3/</link>
+      <link>https://shenyimingtech.github.io/posts/linux-%E4%B8%AD%E7%9A%84%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/linux-%E4%B8%AD%E7%9A%84%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3/</guid>
+      <guid>https://shenyimingtech.github.io/posts/linux-%E4%B8%AD%E7%9A%84%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E6%8E%A5%E5%8F%A3/</guid>
       <description>本文用到的字符画工具：vscode-asciiflow2&#xA;注意: 本文中使用 ip 命令创建或修改的任何网络配置，都是未持久化的，主机重启即消失。&#xA;Linux 具有强大的虚拟网络能力，这也是 openstack 网络、docker 容器网络以及 kubernetes 网络等虚拟网络的基础。&#xA;这里介绍 Linux 常用的虚拟网络接口类型：TUN/TAP、bridge、veth、ipvlan/macvlan、vlan 以及 vxlan/geneve.&#xA;tun/tap 是操作系统内核中的虚拟网络设备，他们为用户层程序提供数据的接收与传输。&#xA;普通的物理网络接口如 eth0，它的两端分别是内核协议栈和外面的物理网络。&#xA;而对于 TUN/TAP 虚拟接口如 tun0，它的一端一定是连接的用户层程序，另一端则视配置方式的不同而变化，可以直连内核协议栈，也可以是某个 bridge（后面会介绍）。 Linux 通过内核模块 TUN 提供 tun/tap 功能，该模块提供了一个设备接口 /dev/net/tun 供用户层程序读写，用户层程序通过 /dev/net/tun 读写主机内核协议栈的数据。&#xA;&amp;gt; modinfo tun filename: /lib/modules/5.13.6-1-default/kernel/drivers/net/tun.ko.xz alias: devname:net/tun alias: char-major-10-200 license: GPL author: (C) 1999-2004 Max Krasnyansky &amp;lt;maxk@qualcomm.com&amp;gt; description: Universal TUN/TAP device driver ... &amp;gt; ls /dev/net/tun /dev/net/tun 一个 TUN 设备的示例图如下：&#xA;+----------------------------------------------------------------------+ | | | +--------------------+ +--------------------+ | | | User Application A | | User Application B +&amp;lt;-----+ | | +------------+-------+ +-------+------------+ | | | | 1 | 5 | | |.</description>
     </item>
   </channel>

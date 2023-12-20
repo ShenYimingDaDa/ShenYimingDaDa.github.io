@@ -2,46 +2,46 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Story on 摆人日寄</title>
-    <link>https://ShenYimingDaDa.github.io/categories/story/</link>
+    <link>https://shenyimingtech.github.io/categories/story/</link>
     <description>Recent content in Story on 摆人日寄</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-hant</language>
     <copyright>This is a customized copyright.</copyright>
     <lastBuildDate>Fri, 08 Jul 2022 10:58:08 -0400</lastBuildDate>
-    <atom:link href="https://ShenYimingDaDa.github.io/categories/story/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://shenyimingtech.github.io/categories/story/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>[译] NAT 穿透是如何工作的：技术原理及企业级实践（Tailscale, 2020）</title>
-      <link>https://ShenYimingDaDa.github.io/posts/nat%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/</link>
+      <link>https://shenyimingtech.github.io/posts/nat%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/</link>
       <pubDate>Fri, 08 Jul 2022 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/nat%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/</guid>
+      <guid>https://shenyimingtech.github.io/posts/nat%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84/</guid>
       <description>译者序 本文翻译自 2020 年的一篇英文博客： How NAT traversal works。&#xA;设想这样一个问题：在北京和上海各有一台局域网的机器（例如一台是家里的台式机，一 台是连接到星巴克 WiFi 的笔记本），二者都是私网 IP 地址，但可以访问公网， 如何让这两台机器通信呢？&#xA;既然二者都能访问公网，那最简单的方式当然是在公网上架设一个中继服务器： 两台机器分别连接到中继服务，后者完成双向转发。这种方式显然有很大的性能开销，而 且中继服务器很容易成为瓶颈。&#xA;有没有办法不用中继，让两台机器直接通信呢？&#xA;如果有一定的网络和协议基础，就会明白这事儿是可能的。Tailscale 的这篇史诗级长文由浅入深地展示了这种 “可能”，如果完全实现本文所 介绍的技术，你将得到一个企业级的 NAT / 防火墙穿透工具。 此外，如作者所说，去中心化软件领域中的许多有趣想法，简化之后其实都变成了 跨过公网（互联网）实现端到端直连 这一问题，因此本文的意义并不仅限于 NAT 穿透本身。&#xA;由于译者水平有限，本文不免存在遗漏或错误之处。如有疑问，请查阅原文。&#xA;以下是译文。&#xA;1.1 背景：IPv4 地址短缺，引入 NAT 1.2 需求：两台经过 NAT 的机器建立点对点连接 1.3 方案：NAT 穿透 1.3.1 两个必备前提：UDP + 能直接控制 socket 1.3.2 保底方式：中继 1.4 挑战：有状态防火墙和 NAT 设备 2.1 有状态防火墙 2.1.1 默认行为（策略） 2.1.2 如何区分入向和出向包 2.2 防火墙朝向（face-off）与穿透方案 2.2.1 防火墙朝向相同 场景特点：服务端 IP 可直接访问 穿透方案：客户端直连服务端，或 hub-and-spoke 拓扑 2.</description>
     </item>
     <item>
       <title>如何拯救一台 glibc 被干掉的 Linux 服务器</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%A6%82%E4%BD%95%E6%8B%AF%E6%95%91%E4%B8%80%E5%8F%B0-glibc-%E8%A2%AB%E5%B9%B2%E6%8E%89%E7%9A%84-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%A6%82%E4%BD%95%E6%8B%AF%E6%95%91%E4%B8%80%E5%8F%B0-glibc-%E8%A2%AB%E5%B9%B2%E6%8E%89%E7%9A%84-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
       <pubDate>Sun, 09 May 2021 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%A6%82%E4%BD%95%E6%8B%AF%E6%95%91%E4%B8%80%E5%8F%B0-glibc-%E8%A2%AB%E5%B9%B2%E6%8E%89%E7%9A%84-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%A6%82%E4%BD%95%E6%8B%AF%E6%95%91%E4%B8%80%E5%8F%B0-glibc-%E8%A2%AB%E5%B9%B2%E6%8E%89%E7%9A%84-linux-%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>今天正要下班，群里有人问我：&#xA;『我们有个新管理员上的 glibc 给删了，现在什么命令都跑不了了，还有救吗？』&#xA;我说，glibc 也能弄掉，莫不是 rpm &amp;ndash;force?&#xA;回答是肯定的。&#xA;glibc 被卸载，负责加载所有. so 的 ld.so 也就没了，因此运行几乎所有外部命令时都会得到一句『找不到 ld-linux-x-y-z.so.2』的出错提示。比如 ls，比如 cp，以及所有动态链接的命令。&#xA;这是一台放置于另外一个大洲的客户 IDC 的物理服务器。我说不行就光盘引导修复，但不知道什么原因他们又连不上服务器的 HP iLO 工具。&#xA;干着急也不是办法。万幸的是 rpm &amp;ndash;force 的小伙子的 ssh 登录 shell 还连着。我说那不行就只能你自己一个 byte 一个 byte 先敲一个 static linked 的 binary 出来，这是可以运行的。&#xA;话说完，我就大概想到该怎么办了。&#xA;用 bash 的内部命令 printf &amp;lsquo;\xaa\xbb\xcc&amp;rsquo; &amp;gt; file 可以生成任意内容的文件 另外找台同配置的 Linux，用 xxd 或 hexdump 配合一点点脚本，或者直接用 python 写个小脚本，把 ld.so 文件转储成若干条 printf &amp;lsquo;&amp;hellip;&amp;rsquo; &amp;raquo; file 的命令（考虑到 bash 单行命令的长度限制，我没有尝试只生成一条命令） copy 2) 中生成的命令，paste 到出事的 Linux shell 中运行 这样至少 ld.</description>
     </item>
     <item>
       <title>命令行Clash指南</title>
-      <link>https://ShenYimingDaDa.github.io/posts/%E5%9C%A8-linux-%E4%B8%8A%E4%BD%BF%E7%94%A8-clash-%E4%BD%9C%E4%BB%A3%E7%90%86-verne-in-github/</link>
+      <link>https://shenyimingtech.github.io/posts/%E5%9C%A8-linux-%E4%B8%8A%E4%BD%BF%E7%94%A8-clash-%E4%BD%9C%E4%BB%A3%E7%90%86-verne-in-github/</link>
       <pubDate>Mon, 29 Mar 2021 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/%E5%9C%A8-linux-%E4%B8%8A%E4%BD%BF%E7%94%A8-clash-%E4%BD%9C%E4%BB%A3%E7%90%86-verne-in-github/</guid>
+      <guid>https://shenyimingtech.github.io/posts/%E5%9C%A8-linux-%E4%B8%8A%E4%BD%BF%E7%94%A8-clash-%E4%BD%9C%E4%BB%A3%E7%90%86-verne-in-github/</guid>
       <description>去年年中的时候切换到 macOS，一直用 ClashX，时隔半年又迁移回了 Linux，发现原先使用的 V2rayL 虽然能用，但是有些简陋，并且不支持分流，并且如果一个地址失效了，还需要手动地进行切换。&#xA;去年年中的时候切换到 macOS，一直用 ClashX，时隔半年又迁移回了 Linux，发现原先使用的 V2rayL 虽然能用，但是有些简陋，并且不支持分流，并且如果一个地址失效了，还需要手动地进行切换。所以看到 Linux 的 Clash 可以自动进行流量切换的时候，就试一下。&#xA;Clash 是 Go 语言实现的，跨平台代理工具，支持 Shadowsocks/v2ray，支持规则分流等等。&#xA;可以在官方页面下载。&#xA;Linux 下载对应的 linux-amd64 即可。&#xA;在用了很长一段时间的 Clash 命令行之后，我发现 Clash For Windows 这个应用也能够在 Linux 下使用。所以最近就切换到了这个应用上。&#xA;另外欢迎订阅使用 EV Proxy 注册之后一键订阅即可使用。&#xA;下载对应的二进制，比如默认放到 ~/Downloads 目录，在终端进入该目录。&#xA;gunzip clash-linux-amd64-v0.18.0.gz sudo mv clash-linux-amd64-v1.4.2 /usr/local/bin/clash sudo chmod +x /usr/local/bin/clash ./clash clash 启动后会在 ~/.config/clash 目录生成配置文件。&#xA;ls -al ~/.config/clash .rw-r--r-- 10 einverne 23 Mar 19:30 config.yaml .rw-r--r-- 4.0M einverne 23 Mar 19:30 Country.</description>
     </item>
     <item>
       <title> Vim命令速查</title>
-      <link>https://ShenYimingDaDa.github.io/posts/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</link>
+      <link>https://shenyimingtech.github.io/posts/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</link>
       <pubDate>Tue, 09 Mar 2021 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</guid>
+      <guid>https://shenyimingtech.github.io/posts/vim-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E9%80%9F%E6%9F%A5/</guid>
       <description>本速查表按分类列出了 Vim 常用的命令和快捷键，数量较多，可使用 Ctrl + F 进行查找。&#xA;全局命令 命令 / 快捷键功能描述:h[elp] 关键字显示指定关键字的帮助:sav[eas] 文件名另存为...:clo[se]关闭当前窗口:ter[minal]打开新的终端窗口K打开光标所在单词对应的 man 页面 移动光标 命令 / 快捷键功能描述h左移光标j下移光标k上移光标l右移光标H移动到当前页面顶部M移动到当前页面中间L移动到当前页面底部w移动到下个单词开头W移动到下个单词开头（单词含标点）e移动到下个单词结尾E移动到下个单词结尾（单词含标点）b移动到上个单词开头B移动到上个单词开头（单词含标点）%跳转到配对的符号0移动到行首^移动到行首的非空白符$移动到行尾g_移动到行内最后一个非空白符gg移动到文件第一行G移动到文件最后一行5gg 或 5G移动到第 5 行fx移动到字符 x 下次出现的位置tx移动到字符 x 下次出现的位置的前一个字符Fx移动到字符 x 上次出现的位置Tx移动到字符 x 上次出现的位置的后一个字符;重复之前的 f、t、F、T 操作,反向重复之前的 f、t、F、T 操作}移动到下一个段落（当编辑代码时则为函数／代码块）{移动到上一个段落（当编辑代码时则为函数／代码块）zz移动屏幕使光标居中Ctrl + e向下移动屏幕一行（保持光标不动）Ctrl + y向上移动屏幕一行（保持光标不动）Ctrl + b向上滚动一屏Ctrl + f向下滚动一屏Ctrl + d向下滚动半屏Ctrl + u向上滚动半屏 插入模式（插入 / 追加文本） 命令 / 快捷键功能描述i从光标前开始插入字符I从行首开始插入字符a从光标后开始插入字符A从行尾开始插入字符o在当前行之下另起一行，开始插入字符O在当前行之上另起一行，开始插入字符ea从当前单词末尾开始插入Ctrl + h在插入模式下，删除光标前的字符Ctrl + w在插入模式下，删除光标前的单词Ctrl + j在插入模式下，另起一行Ctrl + t在插入模式下，向右缩进，宽度由 shiftwidth 控制Ctrl + d在插入模式下，向左缩进，宽度由 shiftwidth 控制Ctrl + n在插入模式下，在光标之前插入自动补全的下一个匹配项Ctrl + p在插入模式下，在光标之前插入自动补全的上一个匹配项Ctrl + rx在当前光标处插入 x 寄存器的内容Esc退出插入模式 编辑文本 命令 / 快捷键功能描述r替换当前字符J将下一行合并到当前行，并在两部分文本之间插入一个空格gJ将下一行合并到当前行，两部分文本之间不含空格gwip重新调整段落g~切换整个文本的大小写（即大写变小写，小写变大写）gu把整个文本改成小写gU把整个文本改成大写cc 或 S将光标所在的行删除，然后进入插入模式C 或 c$删除光标所在位置到行尾的所有文本，然后进入插入模式ciw将光标所在的单词删除，然后进入插入模式cw从光标位置开始，修改单词s删除当前字符，然后进入插入模式xp将当前字符后移uundo - 撤销最近一次操作U恢复 / 撤销最后修改的行Ctrl + rredo - 重做（和 u 相反）.</description>
     </item>
     <item>
       <title>Tmux教程</title>
-      <link>https://ShenYimingDaDa.github.io/posts/tmux-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
+      <link>https://shenyimingtech.github.io/posts/tmux-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</link>
       <pubDate>Mon, 09 Mar 2020 10:58:08 -0400</pubDate>
-      <guid>https://ShenYimingDaDa.github.io/posts/tmux-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
+      <guid>https://shenyimingtech.github.io/posts/tmux-%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/</guid>
       <description>Tmux 是一个终端复用器（terminal multiplexer），非常有用，属于常用的开发工具。&#xA;本文介绍如何使用 Tmux。&#xA;一、Tmux 是什么？ 1.1 会话与进程 命令行的典型使用方式是，打开一个终端窗口（terminal window，以下简称 &amp;ldquo;窗口&amp;rdquo;），在里面输入命令。用户与计算机的这种临时的交互，称为一次 &amp;ldquo;会话&amp;rdquo;（session） 。&#xA;会话的一个重要特点是，窗口与其中启动的进程是连在一起的。打开窗口，会话开始；关闭窗口，会话结束，会话内部的进程也会随之终止，不管有没有运行完。&#xA;一个典型的例子就是，SSH 登录远程计算机，打开一个远程窗口执行命令。这时，网络突然断线，再次登录的时候，是找不回上一次执行的命令的。因为上一次 SSH 会话已经终止了，里面的进程也随之消失了。&#xA;为了解决这个问题，会话与窗口可以 &amp;ldquo;解绑&amp;rdquo;：窗口关闭时，会话并不终止，而是继续运行，等到以后需要的时候，再让会话 &amp;ldquo;绑定&amp;rdquo; 其他窗口。&#xA;1.2 Tmux 的作用 Tmux 就是会话与窗口的 &amp;ldquo;解绑&amp;rdquo; 工具，将它们彻底分离。&#xA;（1）它允许在单个窗口中，同时访问多个会话。这对于同时运行多个命令行程序很有用。&#xA;（2） 它可以让新窗口 &amp;ldquo;接入&amp;rdquo; 已经存在的会话。&#xA;（3）它允许每个会话有多个连接窗口，因此可以多人实时共享会话。&#xA;（4）它还支持窗口任意的垂直和水平拆分。&#xA;类似的终端复用器还有 GNU Screen。Tmux 与它功能相似，但是更易用，也更强大。&#xA;二、基本用法 2.1 安装 Tmux 一般需要自己安装。&#xA;# Ubuntu 或 Debian $ sudo apt-get install tmux # CentOS 或 Fedora $ sudo yum install tmux # Mac $ brew install tmux 2.</description>
     </item>
   </channel>
